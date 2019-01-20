@@ -11,7 +11,7 @@ linkedin: schneeman
 headcolor: 686868
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
-  vitae::moderncv
+  vitae::awesomecv
   
 
 ---
@@ -30,12 +30,18 @@ I focus mainly on building a data science and algorithmic muscle, but also get t
 ```{r experience}
 my_experience <- tibble::tribble(
   ~title, ~start, ~end, ~company, ~why,
+  
+  # The DOSH Experience
+  
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data-oriented company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. the data warehouse and data lake)",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Collaborated with key business stakeholders to generate marketing campaigns, financial models, sales models, and investor-deck content",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from application data and to create data pipelines feeding location data to S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Built xgboost-based models predicting offer redemption (directly tied to revenue) and deeply analyzed fraudulent behaviors and referral networks",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Lead transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Directed Data Science efforts in predicting causal impact of multi-vendor markets and price elasticity",
+  
+  # The HomeAway Experience
+  
   "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Strengthened Data Science muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelizing data-informed decision making. Built and directed 25 person team consisting of Data Scientists and Machine Learning Engineers",
   "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Projects included competitive intelligence, fraud detection, unstructured data mining, search result ranking, photo analysis, price predictions",
   "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis",
@@ -49,7 +55,27 @@ my_experience <- tibble::tribble(
   "Senior Manager, Software Engineering", "Sep 2011", "Sep 2013", "HomeAway, an Expedia Company", "Established HomeAway Inventions Program, which is responsible for identifying, cataloging and protecting intellectual property. Sole- or Co-Inventor on several pre-patent inventions",
 
   "Senior Manager, Software Engineering", "Sep 2011", "Sep 2013", "HomeAway, an Expedia Company", "Technical member of global payment processor negotiation team, responsible for technical evaluation and diligence for HomeAway's successful selection of a global payment processor",
-  "Senior Software Engineer", "Jun 2010", "Sep 2011", "HomeAway, an Expedia Company", "Team Lead delivering Unified Payments Services, PCI and SOX compliance, and migrating vertical payment flows to common service-based API"
+  "Senior Software Engineer", "Jun 2010", "Sep 2011", "HomeAway, an Expedia Company", "Team Lead delivering Unified Payments Services, PCI and SOX compliance, and migrating vertical payment flows to common service-based API",
+  
+  # The PayPal Experience
+  
+  "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "Implemented two-factor authentication system (via hardware token) for PayPal and eBay",
+  "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "Scrummaster for next-gen (now current gen) view-layer technology",
+  "Engineering Manager, Software Development", "Mar 2008", "Jul 2009", "PayPal, Inc", "Lead development of the content management system for PayPal's marketing department",
+  
+  # The VISA Experience
+  
+  "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Managed Corporate Card Expense Reporting service for large, multi-national financial institutions",
+  
+  "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Implemented central directory server for Verified by Visa",
+  
+  "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Developed reference standard Directory Server for Verified by Visa(tm) implementation of the Three D Secure payment protocol",
+  
+  "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Lead testing and qualification efforts for Verified by Visa(tm) certifications",
+  
+  # The Globeset Experience
+  
+  "Software Engineer", "Feb 1998", "Nov 2000", "Globeset, Inc", "Introduced Java to the development process. Wrote monitor applications to ensure highly-available services",
 )
 
 my_experience %>% detailed_entries(
@@ -58,5 +84,47 @@ my_experience %>% detailed_entries(
   with = company, 
   why = why
 )
+
+```
+
+# Education
+
+```{r education}
+
+my_education <- tibble::tribble(
+  ~title, ~end, ~school,
+  "Complex Systems Summer School", "2015", "The Santa Fe Institute",
+  "BSc - Electical Engineering", "1990", "University of Southern California",
+  "BA - Mathematics", "1990", "Carroll College"
+)
+
+my_education %>% detailed_entries(
+  what = title,
+  when = end,
+  with = school
+
+)
+
+```
+
+# Volunteering
+
+```{r volunteer}
+
+my_volunteer <- tibble::tribble(
+  ~title, ~start, ~end, ~company, ~why,
+  
+  "Industry Consultant", "Jan 2018", "", "City of Austin Business & International Affairs Focus Group", "Focusing on Austin TX's outreach to both business and international affairs", 
+  
+    "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas"
+)
+
+my_volunteer %>% detailed_entries(
+  what = title,
+  when = glue::glue("{start} - {end}"),
+  with = company, 
+  why = why
+)
+
 
 ```
