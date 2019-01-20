@@ -30,18 +30,26 @@ I focus mainly on building a data science and algorithmic muscle, but also get t
 ```{r experience}
 my_experience <- tibble::tribble(
   ~title, ~start, ~end, ~company, ~why,
-  "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Built a diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data-oriented company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. the data warehouse and data lake)",
+  "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data-oriented company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. the data warehouse and data lake)",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Collaborated with key business stakeholders to generate marketing campaigns, financial models, sales models, and investor-deck content",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from application data and to create data pipelines feeding location data to S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Built xgboost-based models predicting offer redemption (directly tied to revenue) and deeply analyzed fraudulent behaviors and referral networks",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Lead transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
   "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Directed Data Science efforts in predicting causal impact of multi-vendor markets and price elasticity",
-  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Strengthening Data Science muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelizing data-informed decision making.",
-  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Competitive intelligence, fraud detection, unstructured data mining.",
-  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis. Evangelizing data-informed decision making",
+  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Strengthened Data Science muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelizing data-informed decision making. Built and directed 25 person team consisting of Data Scientists and Machine Learning Engineers",
+  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Projects included competitive intelligence, fraud detection, unstructured data mining, search result ranking, photo analysis, price predictions",
+  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis",
   "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Introduced natural language processing, machine learning and defensible statistical inference",
   "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Created and lead 100+ volunteer \"science club\", all trying to swipe right for science",
-  "Principal Data Scientist", "Jun 2014", "Sept 2016", "HomeAway, an Expedia Company", "Partnered with the UT McCombs School of Business, providing guidance and data for the Business Analytics program participant capstone projects. Acted as an external ambassador through public speaking at various events."
+  "Principal Data Scientist", "Jul 2014", "Sept 2016", "HomeAway, an Expedia Company", "Partnered with the UT McCombs School of Business, providing guidance and data for the Business Analytics program participant capstone projects. Acted as an external ambassador through public speaking at various events",
+  "Director of Engineering", "Sep 2013", "Jul 2014", "HomeAway, an Expedia Company", "Directed 25-person team responsible for the Orders and Payments Platform services. The team consisted of Engineers and Architects of all levels and areas in \"the stack\" (UX/UI, web-tier, service layer, ...)",
+  "Director of Engineering", "Sep 2013", "Jul 2014", "HomeAway, an Expedia Company", "Worked closely with CFO, CTO, and CPO as the services handled much of HomeAway's revenue",
+  "Senior Manager, Software Engineering", "Sep 2011", "Sep 2013", "HomeAway, an Expedia Company", "Lead development and enhancement of PCI Compliant \"payment island\". Architected and implemented payment gateway router which sends transactions from clients to any one of several payment gateways (e.g. Cybersource, Payflow Pro, Yapstone, and Trident)",
+
+  "Senior Manager, Software Engineering", "Sep 2011", "Sep 2013", "HomeAway, an Expedia Company", "Established HomeAway Inventions Program, which is responsible for identifying, cataloging and protecting intellectual property. Sole- or Co-Inventor on several pre-patent inventions",
+
+  "Senior Manager, Software Engineering", "Sep 2011", "Sep 2013", "HomeAway, an Expedia Company", "Technical member of global payment processor negotiation team, responsible for technical evaluation and diligence for HomeAway's successful selection of a global payment processor",
+  "Senior Software Engineer", "Jun 2010", "Sep 2011", "HomeAway, an Expedia Company", "Team Lead delivering Unified Payments Services, PCI and SOX compliance, and migrating vertical payment flows to common service-based API"
 )
 
 my_experience %>% detailed_entries(
