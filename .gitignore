@@ -1,3 +1,8 @@
 .Rhistory
 .RData
 .Rproj.user
+
+public/
+cv-vitae/*.sty
+cv-vitae/*.cls
+cv-vitae/fonts
