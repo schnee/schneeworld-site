@@ -12,8 +12,6 @@ headcolor: 686868
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::awesomecv
-  
-
 ---
 
 ```{r setup, include=FALSE}
@@ -125,6 +123,24 @@ my_volunteer %>% detailed_entries(
   with = company, 
   why = why
 )
+```
+
+# Certifications
+
+```{r certifications}
 
 
+my_certs <- tibble::tribble(
+  ~name, ~issued, ~issuer,
+  
+  "Neural Networks and Deep Learning", "Nov 2017", "Coursera",
+  "R Programming", "Sept 2014", "Coursera",
+  "The Data Scientists Toolbox", "Sept 2014", "Coursera"
+)
+
+my_certs %>% brief_entries(
+  what = name,
+  when = issued,
+  with = issuer
+)
 ```
