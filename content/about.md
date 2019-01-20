@@ -1,5 +1,5 @@
 ---
-title: "about.rmd"
+title: "About this site"
 author: "Brent Schneeman"
 date: "1/20/2019"
 output: 
