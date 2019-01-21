@@ -8,7 +8,7 @@ tags:
   - mondrian
 slug: mondrian
 ---
-```{r image, fig.width = 6, fig.height=1, echo=FALSE}
+```{r image, fig.width = 8, fig.height=1, echo=FALSE}
 library(mondrian)
 par(mfrow=c(1,1), mar=rep(1,4))
 compose()
