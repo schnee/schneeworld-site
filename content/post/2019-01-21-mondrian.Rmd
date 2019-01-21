@@ -1,0 +1,19 @@
+---
+title: Mondrian
+author: Brent Schneeman
+date: '2019-01-21'
+categories:
+  - r
+tags:
+  - mondrian
+slug: mondrian
+---
+```{r image, fig.width = 6, fig.height=1, echo=FALSE}
+library(mondrian)
+par(mfrow=c(1,1), mar=rep(1,4))
+compose()
+```
+
+[Jean Fan](https://github.com/JEFworks) created an [R function](https://jef.works/art-with-code/portfolio/20180720_mondrian/) to generate artwork in the style of [Piet Mondrian](https://en.wikipedia.org/wiki/Piet_Mondrian). I thought this is brilliant and turned the code into an R package: `devtools::install_github("schnee/mondrian")`. 
+
+The image at the top was generated via Jean's code.
