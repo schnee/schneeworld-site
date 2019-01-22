@@ -1,0 +1,320 @@
+---
+title: Make Neural Nets Great Again
+author: brent
+date: '2019-01-22'
+slug: make-neural-nets-great-again
+categories:
+  - r
+  - keras
+  - twitter
+tags:
+  - r
+  - keras
+  - lstm
+---
+
+
+
+<p><img src="/post/2019-01-22-make-neural-nets-great-again_files/figure-html/head_image-1.png" width="768" />
+# TL;DR</p>
+<p><em>Expecting even a well-trained neural net to character-by-character generate text with any semantic content is ambitious. Building and training this LSTM is more didactic than deployable, but we’ll weaponize it anyway.</em></p>
+<p><em>All this code is in a <a href="https://github.com/schnee/trump-rnn">github repo</a></em></p>
+<div id="r-keras-and-twitter" class="section level1">
+<h1>R, Keras, and Twitter</h1>
+<p>I hadn’t had the opportunity to explore <a href="https://keras.rstudio.com/">RStudio’s API</a> into Keras, a sensible neural network abstraction backed by many lower-level providers such as CNTK, Theano, and Tensorflow. Generating text is fun, and a few year ago, <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrej Karpathy</a> explained how to create a NN to do just that. RStudio has a <a href="https://keras.rstudio.com/articles/examples/lstm_text_generation.html">tutorial for text generation</a>; <a href="https://juliasilge.com/blog/tensorflow-generation/">Julia Silge</a> took it a bit further and I aimed to stand on those shoulders.</p>
+<p>But I needed a corpus from which to train.</p>
+<p>Twitter seemed like a good place to start, and, frankly, only one Tweeter has the bigliest tweets: <span class="citation">[@realDonaldTrump]</span>(<a href="https://twitter.com/realDonaldTrump" class="uri">https://twitter.com/realDonaldTrump</a>). He is prolific, has a large following, and opinionated. And, the <a href="http://trumptwitterarchive.com/">Trump Twitter Archive</a> exists, which made getting the past tweets a breeze.</p>
+</div>
+<div id="the-tweets" class="section level1">
+<h1>The Tweets</h1>
+<pre><code>library(jsonlite)
+library(lubridate)
+library(readr)
+library(purrr)
+library(dplyr)
+
+urltxt &lt;- c(&quot;https://github.com/bpb27/trump_tweet_data_archive/raw/master/condensed_2016.json.zip&quot;,
+            &quot;https://github.com/bpb27/trump_tweet_data_archive/raw/master/condensed_2017.json.zip&quot;,
+            &quot;https://github.com/bpb27/trump_tweet_data_archive/raw/master/condensed_2018.json.zip&quot;)
+
+zipped_json_to_df &lt;- function(url) {
+  temp &lt;- tempfile(fileext = &quot;.zip&quot;)
+  download.file(url,temp)
+  data&lt;- fromJSON(read_file(temp))
+  unlink(temp)
+  data
+}
+
+trump_df &lt;- map_df(urltxt, .f=zipped_json_to_df) %&gt;% 
+  mutate(created_at = parse_date_time(created_at, orders=&quot;%a %b! %d! %H!:%M!:S! %z!* Y!&quot;)) %&gt;%
+  rename(status_id = id_str) %&gt;%
+  rename(reply_to_user_id = in_reply_to_user_id_str)
+
+write_csv(trump_df, &quot;./data/trump_df.csv&quot;)</code></pre>
+<p>That code reaches into the Trump Twitter Archive (“TTA”) and pulls in the tweets from 2016 through 2018. I had to handle the ZIP’ed archives and an expressive datestamp, but the TTA made getting history a breeze.</p>
+<p>After the history, I can keep up-to-date via the <code>rtweet</code> package, helpfully hosted on github.com and <a href="https://rtweet.info/">well-documented</a>. The code to do so follows; it mostly reads in the archived <code>trump_df.csv</code>, finds the most recent tweet in the archive and uses the Twitter API to pull in the tweets after the most recent one.</p>
+<pre><code>library(rtweet)
+library(readr)
+library(dplyr)
+
+handle &lt;- &quot;realDonaldTrump&quot;
+
+devtools::load_all(&quot;./packages/tweetlstm/&quot;)
+
+credsFile &lt;- &quot;creds.csv&quot;
+if (file.exists(credsFile)) {
+  creds &lt;- read_csv(credsFile)
+} else {
+  stop(&quot;Need credentials&quot;)
+}
+
+token &lt;- initialize_twitter(creds)
+
+trump_df &lt;- read_csv(&quot;./data/trump_df.csv&quot;) %&gt;%
+  mutate(status_id = as.character(status_id)) %&gt;%
+  mutate(reply_to_user_id = as.character(reply_to_user_id))
+
+most_recent = trump_df %&gt;% arrange(created_at) %&gt;% pull(status_id) %&gt;% last()
+
+timeline &lt;-
+  get_timeline(user = handle, n = 3200, since_id = most_recent)
+
+if (nrow(timeline) &gt; 0) {
+  trump_df &lt;- trump_df %&gt;%
+    bind_rows(timeline %&gt;% select(colnames(trump_df))) %&gt;%
+    distinct(status_id, .keep_all = TRUE)
+}
+
+write_csv(trump_df, &quot;./data/trump_df.csv&quot;)</code></pre>
+<p>At the completion, the <code>trump_df.csv</code> will contain up-to-date tweets.</p>
+</div>
+<div id="project-structure" class="section level1">
+<h1>Project Structure</h1>
+<p>You’ll note that the “read twitter” code above uses <code>devtools::load_all(...)</code> to load an R package. I’m trying to structure my R code in resuable artifacts, and in R, that means R packages. I struggled with a sensible directory structure that would allow me to create and maintain application- and package-code with minimal overhead (e.g. creating an independent R package and associated repo for code that will live only in a specific project / application seemed onerous). Research (well, internet search) showed some folks (I lost the link) were putting project-specific packages into a <code>packages</code> directory <strong>inside the project folder</strong>. Brilliant. The code in the <a href="https://github.com/schnee/trump-rnn">github repo</a> is laid out like:</p>
+<pre><code>├── alphabet.RDS
+├── creds.csv
+├── data
+│   ├── trump_df.csv
+├── generate_reply.R
+├── getData.R
+├── model_history.RDS
+├── packages
+│   └── tweetlstm
+│       ├── data
+│       ├── DESCRIPTION
+│       ├── man
+│       ├── NAMESPACE
+│       └── R
+│           ├── model_management.R
+│           └── twitter_managment.R
+├── README.md
+├── train_model.R
+├── trumprnn.h5
+├── trump-rnn.Rproj
+└── update_tweets.R</code></pre>
+<p>The <code>.R</code> code at the top level is the application code. The <code>.R</code> code down under <code>packages</code> is code that comprises the application-level packaging of common functions.</p>
+<p>I’m embarrassed that it took me this long to trip over this concept. (I’ll pressure test this for a bit and I’m sure I’ll tweak it)</p>
+</div>
+<div id="dude-where-are-the-lstms" class="section level1">
+<h1>Dude, where are the LSTMs?</h1>
+<p>Way down in the <code>twitterlstm</code> package, in the <code>model_management.R</code> code, lives this function:</p>
+<pre><code>create_model &lt;- function(chars, max_length){
+  keras_model_sequential() %&gt;%
+    bidirectional(layer_cudnn_lstm(units=256, input_shape = c(max_length, length(chars)))) %&gt;%
+    layer_dropout(rate = 0.5) %&gt;%
+    layer_dense(length(chars)) %&gt;%
+    layer_activation(&quot;softmax&quot;) %&gt;%
+    compile(
+      loss = &quot;categorical_crossentropy&quot;,
+      optimizer = optimizer_adam(lr = 0.001)
+    )
+}</code></pre>
+<p>This function <em>creates the model</em>. It is very close to Julia’s (and RStudio’s), but there are a couple of differences:</p>
+<ul>
+<li>The LSTM is wrapped in a <code>bidirectional</code> wrapper. This effectively duplicates the LSTM layer, and feeds the input sequence backwards to the duplicated layer. The result has context for both the past and future around the current time step.</li>
+<li>A <code>layer_dropout</code> has been introduced. Dropout randomly removes neurons from the network during training, which removes signal. Turns out, <code>dropout</code> is a pretty effective way to ensure that the net does not overfit on the training data, because during training (and at each step), only some (randomly selected) data is available.</li>
+<li>The LSTM is a <code>layer_cudnn_lstm</code>. A year ago, I built my own <a href="https://medium.com/@schnee/a-1200-deep-learning-rig-b84db5ec3b40">deeplearning</a> box, around which is a CUDA-capable nVidia GPU. A <code>layer_cudnn_lstm</code> is purpose-built to take advantage of these. In my case, I am able to train in 1/4 of the time compared to a “regular” <code>layer_lstm</code>. If you have the means, I highly recommend one of these.</li>
+</ul>
+<p>The code to train the network is in the <code>train_model.R</code> file, reproduced here:</p>
+<pre><code>library(keras)
+library(tidyverse)
+library(tokenizers)
+library(lubridate)
+library(ggplot2)
+
+devtools::load_all(&quot;./packages/tweetlstm/&quot;)
+
+max_length &lt;- get_max_length()
+
+trump_df &lt;- read_csv(&quot;./data/trump_df.csv&quot;)
+
+text &lt;- trump_df %&gt;% 
+  filter(!is_retweet) %&gt;% 
+  arrange(created_at) %&gt;%
+  top_n(3300, created_at) %&gt;%
+  clean_and_tokenize()
+
+print(sprintf(&quot;Corpus length: %d&quot;, length(text)))
+
+alphabet &lt;- text %&gt;%
+  unique() %&gt;%
+  sort()
+
+saveRDS(alphabet, file = &quot;alphabet.RDS&quot;)
+
+print(sprintf(&quot;Total characters: %d&quot;, length(alphabet)))
+
+vectors &lt;- get_vectors(text, alphabet, max_length)
+
+model &lt;- create_model(alphabet, max_length)
+
+model_history &lt;- fit_model(model, vectors, epochs = 40, view_metrics = FALSE)
+
+saveRDS(model_history, &quot;model_history.RDS&quot;)
+
+model %&gt;% save_model_hdf5(&quot;./trumprnn.h5&quot;)</code></pre>
+<p>It loads the application package, loads the archive of tweets, tokenizes 3300 of the most-recent tweets (which is a little over a year), prints out some statistics, vectorizes the text, and then fits the model (which returns a <code>model_history</code> object).</p>
+<p>Model fitting looks like:</p>
+<pre><code>fit_model &lt;- function(model, vectors, epochs = 1, view_metrics = FALSE){
+  model %&gt;% fit(
+    vectors$x, vectors$y,
+    batch_size = 32,
+    epochs = epochs,
+    validation_split= 0.1,
+    #callbacks = list(callback_early_stopping(patience= 4)),
+    view_metrics = view_metrics
+  )</code></pre>
+<p>Which is not too different from prior code; about the only new thing is the <code>validation_split</code> argument, which allows for epoch-level validation on 10% of the data. We can see this with the <code>model_history</code>:</p>
+<pre class="r"><code>library(keras)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(ggthemes)
+
+# ignore this hard-coded path; it is just for the blog
+readRDS(&#39;~/projects/github.com/trump-rnn/model_history.RDS&#39;) %&gt;%
+  plot() +
+  scale_color_few(palette = &quot;Dark&quot;) +
+  scale_fill_few(palette = &quot;Dark&quot;) +
+  theme_few() +
+  labs(
+    title = &quot;Model Validation&quot;,
+    caption = &quot;256 Node Bidirectional LSTM\ntrained on @realDonaldTrump tweets&quot;
+  )</code></pre>
+<p><img src="/post/2019-01-22-make-neural-nets-great-again_files/figure-html/model_history-1.png" width="768" /></p>
+<p>The diverging lines indicate that, despite the <code>layer_dropout</code>, we’re still overfitting. That’s probably a whole new blogpost. For this blog, at epoch 40, we have a fitted model.</p>
+</div>
+<div id="generate-some-text" class="section level1">
+<h1>Generate some text</h1>
+<p>That’s easy, just call <code>tweetlstm::generate_phrase</code> :</p>
+<pre><code>generate_phrase(
+  model,
+  trump_df %&gt;%
+    top_n(n = 5, wt = created_at) %&gt;%
+    clean_and_tokenize(),
+  alphabet,
+  max_length,
+  230,
+  0.5
+)</code></pre>
+<p>The <code>generate_phrase</code> <a href="https://github.com/schnee/trump-rnn/blob/master/packages/tweetlstm/R/model_management.R#L123">function</a> takes a model, the array of characters for the seed text, the list of symbols - the alphabet - from which to sample characters, the number of characters to actually form the seed, the total number of characters to generate, and a number to control how aggressive the model should be when it selects the next character. <a href="https://juliasilge.com/blog/tensorflow-generation/">Julia</a> explains it much better than I could. When you call this, you (might) get something like:</p>
+<pre><code>ate and hosting they want to stop the political policies, she was the story of 
+the Fake News Media is the one of the highly condrouse of the Russian First 
+Country are provides that the Wall to the @WhiteHouse! #M</code></pre>
+<p>or</p>
+<pre><code>ck to the United States because there was no Collusion in the Trump Campaign back 
+on the Democrats look at the House and to the Dossier, the Trump Agenday to which 
+the supporting countries to fire the U.S. and Co</code></pre>
+<p>Not exactly sensible. Not even <code>covfefe</code>-level sensible. But, focus on what it can do. “United States”, “Fake News Media”, and even “<span class="citation">@Whitehouse</span>” were all generated character-by-character from a NN model trained on a corpus of tweets. That’s amazing. It is not exactly deployable-level amazing, but that’s not going to stop me.</p>
+</div>
+<div id="weaponize-it" class="section level1">
+<h1>Weaponize It</h1>
+<p>We have a model and I’d rather not have it sit on the shelf and depreciate. What to do. What. To. Do?</p>
+<p>Hey, maybe everytime <span class="citation">@realDonaldTrump</span> tweets, this thing can tweet back? The <code>rtweet</code> package can <code>POST</code> as well as it can <code>GET</code>… I needed to create a new Twitter account (a <strong>bot</strong> oh noes), <a href="https://twitter.com/trumprnn">which I did</a>, and then created an authorized application connected to that account.</p>
+<p>And the <code>generate_reply.R</code> <a href="https://github.com/schnee/trump-rnn/blob/master/generate_reply.R">file</a> will do exactly what it says it will do: it generates a reply:</p>
+<pre><code>library(rtweet)
+library(readr)
+library(dplyr)
+library(keras)
+
+handle &lt;- &quot;realDonaldTrump&quot;
+
+devtools::load_all(&quot;./packages/tweetlstm/&quot;)
+
+credsFile &lt;- &quot;creds.csv&quot;
+if (file.exists(credsFile)) {
+  creds &lt;- read_csv(credsFile)
+} else {
+  stop(&quot;Need credentials&quot;)
+}
+
+token &lt;- initialize_twitter(creds)
+
+my_replies &lt;- get_timeline(rtweet:::home_user()) %&gt;% 
+  #filter(reply_to_screen_name == handle) %&gt;% 
+  arrange(created_at)
+
+trump_df &lt;- read_csv(&quot;./data/trump_df.csv&quot;) %&gt;%
+  mutate(status_id = as.character(status_id)) %&gt;%
+  mutate(reply_to_user_id = as.character(reply_to_user_id))
+
+# if my replies are all before the last non-retweet entry from handle, then I need to
+# reply. If not, then I can sleep and wait for a new tweet.
+my_last_reply_timestamp &lt;- my_replies %&gt;% top_n(n=1, wt = created_at) %&gt;% pull(created_at)
+
+the_unreplied_tweets &lt;- trump_df %&gt;% filter(!is_retweet) %&gt;%
+  filter(created_at &gt; my_last_reply_timestamp) %&gt;% 
+  arrange(created_at)
+
+if(nrow(the_unreplied_tweets) &gt; 0) {
+  reply_to_status_id &lt;- the_unreplied_tweets %&gt;% top_n(n=1, wt = created_at) %&gt;% pull(status_id)
+  
+  num_reply_chars &lt;- 0
+  n_tweets &lt;- 1
+  
+  while (((num_reply_chars &lt; max_length) &amp;&amp; n_tweets &lt;= 10)) {
+    reply_to_txt &lt;- trump_df %&gt;% top_n(n = n_tweets, wt = created_at)
+    
+    reply_chars &lt;- reply_to_txt %&gt;% clean_and_tokenize()
+    
+    num_reply_chars &lt;- length(reply_chars)
+    n_tweets &lt;- n_tweets + 1
+    
+  }
+  
+  if (num_reply_chars &gt;= max_length) {
+    tweet_prefix &lt;- paste0(&quot;.@&quot;, handle, &quot;:&quot;)
+    
+    model &lt;- load_model_hdf5(&quot;./trumprnn.h5&quot;)
+    alphabet &lt;- readRDS(file = &quot;./alphabet.RDS&quot;)
+    
+    
+    the_reply &lt;- generate_phrase(
+      model = model,
+      seedtext = reply_chars,
+      chars = alphabet,
+      max_length = get_max_length(),
+      output_size = 230 - nchar(tweet_prefix),
+      diversity = 0.4
+    )
+    
+    the_reply &lt;- paste(tweet_prefix, the_reply)
+    
+    post_tweet(status = the_reply, in_reply_to_status_id = reply_to_status_id)
+  } 
+  
+}</code></pre>
+<p>The “action” line is that last one: <code>post_tweet</code>. It will reply to the most recent tweet from <span class="citation">@realDonaldTrump</span> with content seeded by the his most recent tweets and generated by the most recent version of the trained model.</p>
+<p>I <em>could</em> wrap the three main files in a crontab so that on a periodic basis, the tweet archive is updated, the model is retrained, and any given tweet is replied-to (heck, webhooks might be able to help out here). I <em>could</em> do this. But I haven’t.</p>
+</div>
+<div id="next-steps" class="section level1">
+<h1>Next Steps</h1>
+<p>I probably need to try to generate more sensible tweets. I think <a href="https://medium.com/@david.campion/text-generation-using-bidirectional-lstm-and-doc2vec-models-1-3-8979eb65cb3a">this guy</a> has some ideas I’ll want to try out.</p>
+</div>
