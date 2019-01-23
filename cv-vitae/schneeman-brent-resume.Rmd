@@ -23,7 +23,7 @@ library(vitae)
 
 Data science executive building and deploying machine learning and algorithmic models in real time customer facing applications. 
 
-Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having built durable teams across disciplines and companies. Pivoted from software engineering roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models.
+Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Pivoted from software engineering roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models.
  
 # Experience
 
@@ -42,12 +42,12 @@ my_experience <- tibble::tribble(
   
   # The HomeAway Experience
   
-  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Strengthened Data Science muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelizing data-informed decision making. Built and directed 25 person team consisting of Data Scientists and Machine Learning Engineers",
-  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Projects included competitive intelligence, fraud detection, unstructured data mining, search result ranking, photo analysis, price predictions",
+  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Strengthened Data Science muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelized data-informed decision making across company and with key executives, leading to the formation of the HomeAway Data Science Team. Built and directed 25 person team consisting of Data Scientists and Machine Learning Engineers",
+  "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Projects included competitive intelligence, fraud detection, unstructured and semi-structured data mining, search result ranking, photo analysis, price predictions",
   "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis",
   "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Introduced natural language processing, machine learning and defensible statistical inference",
   "Senior Director, Data Science", "Sep 2016", "Dec 2017", "HomeAway, an Expedia Company", "Created and lead 100+ volunteer \"science club\", all trying to swipe right for science",
-  "Principal Data Scientist", "Jul 2014", "Sept 2016", "HomeAway, an Expedia Company", "Partnered with the UT McCombs School of Business, providing guidance and data for the Business Analytics program participant capstone projects. Acted as an external ambassador through public speaking at various events",
+  "Principal Data Scientist", "Jul 2014", "Sept 2016", "HomeAway, an Expedia Company", "Partnered with the UT McCombs School of Business, providing guidance and data for the Business Analytics program participant capstone projects. Acted as an external ambassador through public speaking at various events. Built internal crediblity around a scientific method to AB Testing and algorithmic approached to business problems",
   "Director of Engineering", "Sep 2013", "Jul 2014", "HomeAway, an Expedia Company", "Directed 25-person team responsible for the Orders and Payments Platform services. The team consisted of Engineers and Architects of all levels and areas in \"the stack\" (UX/UI, web-tier, service layer, ...)",
   "Director of Engineering", "Sep 2013", "Jul 2014", "HomeAway, an Expedia Company", "Worked closely with CFO, CTO, and CPO as the services handled much of HomeAway's revenue",
   "Senior Manager, Software Engineering", "Sep 2011", "Sep 2013", "HomeAway, an Expedia Company", "Lead development and enhancement of PCI Compliant \"payment island\". Architected and implemented payment gateway router which sends transactions from clients to any one of several payment gateways (e.g. Cybersource, Payflow Pro, Yapstone, and Trident)",
