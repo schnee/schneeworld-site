@@ -1,0 +1,123 @@
+---
+title: Legislative Endurance
+author: Brent
+date: '2019-01-24'
+slug: legislative-endurance
+categories:
+  - r
+  - legislature
+  - politics
+tags:
+  - r
+  - politics
+---
+```{r head_image, fig.width = 8, fig.height=1, echo=FALSE}
+library(mondrian)
+par(mfrow=c(1,1), mar=rep(1,4))
+compose()
+```
+
+```{r setup, include=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(yaml)
+library(dplyr)
+library(purrr)
+library(lubridate)
+library(ggplot2)
+library(ggforce)
+library(ggthemes)
+
+ledge <- yaml.load_file(url("https://github.com/unitedstates/congress-legislators/blob/master/legislators-historical.yaml?raw=true"))
+
+# want to create a dataframe with id, name, term type, term start, term end, and party out of the ledge object
+
+
+extractElements <- function(e){
+  id <- e$id$govtrack
+  firstName <- e$name$first
+  lastName <- e$name$last
+  gender<-e$bio$gender
+
+  terms = bind_rows(lapply(e$terms, FUN=function(t) data.frame(
+    type=t$type, 
+    start=t$start, 
+    end=t$end, 
+    party=if(is.null(t$party)) "Unknown" else t$party, stringsAsFactors = F)))
+  
+  terms <- terms %>% arrange(start)
+  
+  # some legislators will jump between the House and the Senate, which is encoded
+  # as "rep" or "sen" in terms$type. The RLE function figures out how many terms
+  # each "run" of House or Senate lasts.
+  
+  runs <- rle(terms$type)
+  
+  # these statements pick out the start and end of each run, along with the parties
+  # and the body served (the type).
+  
+  # Note that it is possible for a legislator to switch parties; I'm not dealing with
+  # that. yet.
+  
+  starts <- terms$start[c(1,cumsum(head(runs$lengths,-1)) +1)]
+  ends <- terms$end[cumsum(runs$lengths)]
+  parties <- terms$party[cumsum(runs$lengths)]
+  types <- terms$type[cumsum(runs$lengths)]
+  
+  data.frame(id=rep(id, length(starts)),
+             firstName = rep(firstName, length(starts)),
+             lastName = rep(lastName, length(starts)),
+             gender = rep(gender, length(starts)),
+             numTerms = runs$lengths,
+             start = starts,
+             end = ends,
+             party = parties,
+             type = types,
+             stringsAsFactors = FALSE)
+}
+
+splinePoints <- function(theIndex, df){
+  
+  e <- df[theIndex,]
+  
+  # peak of the spline is the number of terms served
+  peak <- e$numTerms
+
+  # this output dataframe defines the shape of the spline. Lots of 
+  # customization here.
+  data.frame(x=quantile(c(e$start, e$end), probs=c(0,.15,.85,1)), 
+             y=c(0, peak*.85, peak*.85, 0),
+             splineIndex = e$id,
+             party=e$party)
+}
+
+
+ledge_df <- map_df(ledge, .f = extractElements)
+
+ledge_df <- ledge_df %>%
+  mutate(start = ymd(start),
+         end = ymd(end),
+         dur = end - start,
+         mid = start + dur / 2,
+         numTerms = if_else(party == "Republican", -1L * numTerms, numTerms),
+         streak_id = paste0(id, start))
+
+# need some factors
+ledge_df$gender <- as.factor(ledge_df$gender)
+ledge_df$party <- as.factor(ledge_df$party)
+ledge_df$type <- as.factor(ledge_df$type)
+
+ledge_df_long <- ledge_df %>% 
+  gather(key="event", value = "date", start, mid, end) %>%
+  arrange(id) %>%
+  mutate(spline_ctl_pt = numTerms) %>%
+  mutate(spline_ctl_pt = if_else(event == "start", 0L, spline_ctl_pt)) %>%
+  mutate(spline_ctl_pt = if_else(event == "end", 0L, spline_ctl_pt)) 
+  
+ledge_df_long %>% filter(type == "rep") %>%
+  ggplot(aes(x=date, y=spline_ctl_pt, group=streak_id)) + 
+  geom_bezier()
+
+
+#ledge_df[ledge_df$party=="Republican",]$numTerms <- ledge_df[ledge_df$party=="Republican",]$numTerms * -1
+
+```
