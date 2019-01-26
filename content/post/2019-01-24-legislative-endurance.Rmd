@@ -307,3 +307,82 @@ ggplot(decades, aes(x=decade, y=aveTerms, colour=gender)) +
 Women Representatives got a late start, but seem to be catching up. 
 
 # Technical Details
+
+This post was written in `Rmarkdown` and published via the `Hugo` static site generator. The source of this data-driven-document is up on [github](https://github.com/schnee/schneeworld-site/blob/master/content/post/2019-01-24-legislative-endurance.Rmd), but some of the more interesting technical details are below.
+
+## YAML
+
+The source data is a YAML file, and the R [yaml](https://cran.r-project.org/web/packages/yaml/index.html) is used to read it.
+
+```
+load_file <- function(urlpath){
+  yaml.load_file(url(urlpath))
+}
+
+fs <- cache_filesystem("./cache")
+
+m_load_file <- memoise(load_file, cache = fs)
+
+ledge <- m_load_file("https://github.com/unitedstates/congress-legislators/blob/master/legislators-historical.yaml?raw=true")
+```
+
+I used the [memoise](https://cran.r-project.org/web/packages/memoise/) package to wrap the network access; this helped when authoring by creating a local copy of the `ledge` list. Memoise is pretty cool.
+
+## Beziers
+
+The "arc plots" make heavy use of `geom_bezier` from [ggforce](https://cran.r-project.org/web/packages/ggforce/). I used `ggforce` over `ggalt` due to package dependencies: `ggalt` wants to install `proj4` which was a little too heavy for me.
+
+One tricky part: after converting the yaml to a tibble, I had data that looked like
+
+```{r}
+ledge_df %>% select(id, start, end) %>% top_n(3, id) %>% knitr::kable()
+```
+
+`start` and `end` map nicely to the x-axis, but I needed a height as well, so I used the `numTerms`. `geom_bezier` needs three control points for the Bezier curve: two on the x-axis and one off of the x-axis; I put the off-x-axis point at the midway between `start` and `end` with a y-corrdinate equaling `numTerms`. My tibble then looked like:
+
+```{r}
+ledge_df %>% select(id, start, end, mid, numTerms) %>% top_n(3, id) %>% knitr::kable()
+```
+
+But `geom_bezier` isn't quite happy with this. It needs each point as a separate row, all grouped by some variable to define the curve. This is a `tidyr` problem, specifically `tidyr::gather`. I also needed to create a curve-id by `paste`ing the existing `id` with the `start` of the streak (this handled a legistlator (defined by the 'id' who had more than one streak)).
+
+It all looked like:
+
+```
+ledge_df_long <- ledge_df %>% 
+  gather(key="event", value = "date", start, mid, end) %>%
+  arrange(id) %>%
+  mutate(spline_ctl_pt = numTerms) %>%
+  mutate(spline_ctl_pt = if_else(event == "start", 0L, spline_ctl_pt)) %>%
+  mutate(spline_ctl_pt = if_else(event == "end", 0L, spline_ctl_pt)) 
+```
+
+After which, I had a long tibble that looks like:
+
+```{r}
+
+ledge_df_long %>% select(streak_id, event, date, spline_ctl_pt) %>% top_n(3, streak_id) %>% knitr::kable()
+
+```
+
+which was used in `geom_bezier`:
+
+```
+ledge_df_long %>% 
+  filter(party %in% c("Democrat", "Republican")) %>%
+  filter(type == "sen") %>%
+  ggplot(aes(x=date, y=spline_ctl_pt, group=streak_id)) + 
+  geom_bezier(aes(color = party), alpha = 0.25) +
+  scale_color_manual("US Senate", values=c("blue", "red")) +
+  theme_few() + theme(legend.position = "bottom",
+                      axis.text.y = element_blank(),
+                      axis.title.y = element_blank(),
+                      axis.ticks.y = element_blank(),
+                      panel.border = element_blank()) +
+  labs(
+    title = "US Senate",
+    x = "Date"
+  )
+
+```
+
