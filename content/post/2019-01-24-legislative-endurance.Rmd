@@ -22,12 +22,24 @@ knitr::opts_chunk$set(echo = TRUE)
 library(yaml)
 library(dplyr)
 library(purrr)
+library(tidyr)
 library(lubridate)
 library(ggplot2)
 library(ggforce)
 library(ggthemes)
+library(memoise)
 
-ledge <- yaml.load_file(url("https://github.com/unitedstates/congress-legislators/blob/master/legislators-historical.yaml?raw=true"))
+load_file <- function(urlpath){
+  yaml.load_file(url(urlpath))
+}
+
+fs <- cache_filesystem("./cache")
+
+m_load_file <- memoise(load_file, cache = fs)
+
+ledge <- m_load_file("https://github.com/unitedstates/congress-legislators/blob/master/legislators-historical.yaml?raw=true")
+
+#ledge <- yaml.load_file(url("https://github.com/unitedstates/congress-legislators/blob/master/legislators-historical.yaml?raw=true"))
 
 # want to create a dataframe with id, name, term type, term start, term end, and party out of the ledge object
 
@@ -36,7 +48,8 @@ extractElements <- function(e){
   id <- e$id$govtrack
   firstName <- e$name$first
   lastName <- e$name$last
-  gender<-e$bio$gender
+  gender <- e$bio$gender
+  birthday <- ymd(e$bio$birthday)
 
   terms = bind_rows(lapply(e$terms, FUN=function(t) data.frame(
     type=t$type, 
@@ -75,22 +88,6 @@ extractElements <- function(e){
              stringsAsFactors = FALSE)
 }
 
-splinePoints <- function(theIndex, df){
-  
-  e <- df[theIndex,]
-  
-  # peak of the spline is the number of terms served
-  peak <- e$numTerms
-
-  # this output dataframe defines the shape of the spline. Lots of 
-  # customization here.
-  data.frame(x=quantile(c(e$start, e$end), probs=c(0,.15,.85,1)), 
-             y=c(0, peak*.85, peak*.85, 0),
-             splineIndex = e$id,
-             party=e$party)
-}
-
-
 ledge_df <- map_df(ledge, .f = extractElements)
 
 ledge_df <- ledge_df %>%
@@ -112,12 +109,201 @@ ledge_df_long <- ledge_df %>%
   mutate(spline_ctl_pt = numTerms) %>%
   mutate(spline_ctl_pt = if_else(event == "start", 0L, spline_ctl_pt)) %>%
   mutate(spline_ctl_pt = if_else(event == "end", 0L, spline_ctl_pt)) 
-  
-ledge_df_long %>% filter(type == "rep") %>%
+```
+
+
+# TL;DR
+
+*Senators and Representatives are staying in office longer. I'm using R and the data from [The United States Github Repo](https://github.com/unitedstates/congress-legislators) to take a look at this.* 
+
+*It is not the US Gov't's repo, it is a collaboration between folks with the Sunlight Foundation, GovTrack.us, the New York Times, the Electronic Frontier Foundation, and the Internet. Take a look at their [website](https://theunitedstates.io/).*
+
+# The Congress
+
+```{r rep-img, fig.width = 8, fig.height = 8, echo = FALSE}
+ledge_df_long %>% 
+  filter(party %in% c("Democrat", "Republican")) %>%
+  filter(type == "rep") %>%
   ggplot(aes(x=date, y=spline_ctl_pt, group=streak_id)) + 
-  geom_bezier()
-
-
-#ledge_df[ledge_df$party=="Republican",]$numTerms <- ledge_df[ledge_df$party=="Republican",]$numTerms * -1
+  geom_bezier(aes(color = party), alpha = 0.25) +
+  scale_color_manual("US Senate", values=c("blue", "red")) +
+  theme_few() + theme(legend.position = "bottom",
+                      axis.text.y = element_blank(),
+                      axis.title.y = element_blank(),
+                      axis.ticks.y = element_blank(),
+                      panel.border = element_blank()) +
+  labs(
+    title = "US House of Representatives",
+    x = "Date"
+  )
 
 ```
+
+```{r sen-img, fig.width = 8, fig.height = 8, echo = FALSE}
+ledge_df_long %>% 
+  filter(party %in% c("Democrat", "Republican")) %>%
+  filter(type == "sen") %>%
+  ggplot(aes(x=date, y=spline_ctl_pt, group=streak_id)) + 
+  geom_bezier(aes(color = party), alpha = 0.25) +
+  scale_color_manual("US Senate", values=c("blue", "red")) +
+  theme_few() + theme(legend.position = "bottom",
+                      axis.text.y = element_blank(),
+                      axis.title.y = element_blank(),
+                      axis.ticks.y = element_blank(),
+                      panel.border = element_blank()) +
+  labs(
+    title = "US Senate",
+    x = "Date"
+  )
+
+```
+
+The above two images show Democrat and Republican legislators in both the US House and US Senate, for all legislators that are not currently serving (so @AOC and @DanCrenshawTX are not represented). The data begins with `r ledge_df %>% top_n(-1, start) %>% pull(lastName) %>% first()` on `r ledge_df %>% top_n(-1, start) %>% pull(start) %>% first()` and ends with `r ledge_df %>% top_n(1, end) %>% pull(lastName) %>% last()` on `r ledge_df %>% top_n(1, end) %>% pull(end) %>% last()`.
+
+## Party Time
+
+```{r sen-all-img, fig.width = 8, fig.height = 8, echo = FALSE}
+ledge_df_long %>% 
+  filter(type == "sen") %>%
+  mutate(spline_ctl_pt = abs(spline_ctl_pt)) %>%
+  ggplot(aes(x=date, y=spline_ctl_pt, group=streak_id)) + 
+  geom_bezier(aes(color = party), alpha = 0.5) +
+  theme_few() + theme(legend.position = "bottom",
+                      axis.text.y = element_blank(),
+                      axis.title.y = element_blank(),
+                      axis.ticks.y = element_blank(),
+                      panel.border = element_blank()) +
+  labs(
+    title = "US Senate",
+    x = "Date", 
+    caption = "All Parties"
+  )
+
+```
+
+This image shows all the parties, for completeness. And while historically, the "Nullifiers" certainly existed, they really don't had much to do since `r ledge_df %>% filter(party == "Nullifier") %>% arrange(end) %>% top_n(-1) %>% pull(end)`, which is when `r ledge_df %>% filter(party == "Nullifier") %>% arrange(end) %>% top_n(-1) %>% pull(lastName)` ended the final Nullifier term.
+
+## Durations
+
+Back to this image of the Senate:
+
+```{r sen-img-2, fig.width = 8, fig.height = 8, echo = FALSE}
+ledge_df_long %>% 
+  filter(party %in% c("Democrat", "Republican")) %>%
+  filter(type == "sen") %>%
+  ggplot(aes(x=date, y=spline_ctl_pt, group=streak_id)) + 
+  geom_bezier(aes(color = party), alpha = 0.25) +
+  scale_color_manual("US Senate", values=c("blue", "red")) +
+  theme_few() + theme(legend.position = "bottom",
+                      axis.text.y = element_blank(),
+                      axis.title.y = element_blank(),
+                      axis.ticks.y = element_blank(),
+                      panel.border = element_blank()) +
+  labs(
+    title = "US Senate",
+    x = "Date"
+  )
+
+```
+
+Each arc represents the one Senator's contiguous service to the United States. Imagine a timeline drawn through the middle of the arcs (horizonatally) and the left point of each arc is where on the timeline that the service began. Similarly, the right hand side of the arc shows where the service ended. The distance between these two points is the duration of the service. The height of the arc is proportional to the duration as well, which probably violates multiple "rules of good data visualization" such as "never map the same value to more than one aesthetic".
+
+BUT...
+
+The envelope of the arcs widens to the right (as time progresses), revealing that the legislators are serving longer. The arcs also form strata as well, which directly correspond to the number of terms served by each legislator. 
+
+We can see the duration increase here:
+
+```{r, fig.width = 8, fig.height = 8, echo = FALSE}
+
+body <- ledge_df %>% 
+  filter(dur < 22000) %>%
+  filter(type=="sen") %>% 
+  filter(party %in% c("Democrat", "Republican"))%>% 
+  arrange(start, end) 
+
+bks = seq(trunc(min(year(body$end)) / 10) * 10, trunc(max(year(body$end)) / 10) * 10 + 10, 10)
+body$decade = bks[cut(year(body$end), breaks=bks, labels=FALSE)]
+
+decades <- body %>% #filter(decade>"1930") %>% 
+  group_by(decade,party) %>% 
+  summarize(aveDur = mean(as.numeric(dur, units="days")/365),
+            aveTerms = mean(abs(numTerms))) 
+
+ggplot(decades, aes(x=decade, y=aveTerms, colour=party)) + 
+  geom_point() + geom_smooth(method="lm", se=F, linetype="dashed", size=0.5) +
+  scale_color_manual("US Senate", values=c("blue", "red")) +
+  theme_few() + 
+  labs(
+    title = "US Senate Duration",
+    y = "Average Number of Terms") +
+  theme(panel.border = element_blank()) + coord_cartesian(ylim=c(0,8))
+```
+
+Over time, the average number of terms served has increased from 1 to between two and three, with Democrats tending to serve longer in recent years.
+
+## Gender
+
+We can take a look at gender in the legislatures as well. It might be easiest to only look at the "outlier" gender, which we can find easy enough:
+
+```{r gender-tally, echo = FALSE}
+ledge_df %>% distinct(id, .keep_all=TRUE) %>% group_by(gender, type) %>% tally() %>% knitr::kable()
+```
+
+Female is the minority gender in both the House and the Senate; filtering for only "Female", the "arc chart" for the House looks like:
+
+```{r fig.width = 8, fig.height = 8, echo = FALSE}
+
+ledge_df_long %>% 
+  filter(party %in% c("Democrat", "Republican")) %>%
+  filter(type == "rep") %>%
+  filter(gender == "F") %>%
+  ggplot(aes(x=date, y=spline_ctl_pt, group=streak_id)) + 
+  geom_bezier(aes(color = party), alpha = 0.25) +
+  scale_color_manual("US House of Representatives", values=c("blue", "red")) +
+  theme_few() + theme(legend.position = "bottom",
+                      axis.text.y = element_blank(),
+                      axis.title.y = element_blank(),
+                      axis.ticks.y = element_blank(),
+                      panel.border = element_blank()) +
+  labs(
+    title = "US House of Representatives",
+    subtile = "Women only",
+    x = "Date"
+  )
+```
+
+That very first arc is `r ledge_df %>% filter(gender == "F") %>% filter(type == "rep") %>% top_n(-1, start) %>% pull(firstName)` `r ledge_df %>% filter(gender == "F") %>% filter(type == "rep") %>% top_n(-1, start) %>% pull(lastName)`, from the Great State of Montana. Interestingly, the data starts just before 1920 (`r ledge_df %>% filter(gender == "F") %>% filter(type == "rep") %>% top_n(-1, start) %>% pull(lastName)` was first elected on `r ledge_df %>% filter(gender == "F") %>% filter(type == "rep") %>% top_n(-1, start) %>% pull(start)`). What happened in 1920? Oh yeah, [the Nineteenth Amendment](https://en.wikipedia.org/wiki/Nineteenth_Amendment_to_the_United_States_Constitution). Turns out that once you give a segment of the population the right to vote, that segment becomes represented (props to Montana for jumping the gun by a couple of years).
+
+Recall that none of this data has currently serving legislators (but that data is in another [data set](https://github.com/unitedstates/congress-legislators) - `legislators_current.yaml`).
+
+```{r, fig.width = 8, fig.height = 8, echo = FALSE}
+
+body <- ledge_df %>% 
+  filter(dur < 22000) %>%
+  filter(type=="rep") %>% 
+  filter(party %in% c("Democrat", "Republican"))%>% 
+  arrange(start, end) 
+
+bks = seq(trunc(min(year(body$end)) / 10) * 10, trunc(max(year(body$end)) / 10) * 10 + 10, 10)
+body$decade = bks[cut(year(body$end), breaks=bks, labels=FALSE)]
+
+decades <- body %>% #filter(decade>"1930") %>% 
+  group_by(decade,gender) %>% 
+  summarize(aveDur = mean(as.numeric(dur, units="days")/365),
+            aveTerms = mean(abs(numTerms))) 
+
+ggplot(decades, aes(x=decade, y=aveTerms, colour=gender)) + 
+  geom_point() + geom_smooth(method="lm", se=F, linetype="dashed", size=0.5) +
+  scale_color_manual("Gender", values=c("orange", "purple")) +
+  theme_few() + 
+  labs(
+    title = "US House Duration",
+    subtitle = "By Gender",
+    y = "Average Number of Terms") +
+  theme(panel.border = element_blank()) + coord_cartesian(ylim=c(0,8))
+```
+
+Women Representatives got a late start, but seem to be catching up. 
+
+# Technical Details
