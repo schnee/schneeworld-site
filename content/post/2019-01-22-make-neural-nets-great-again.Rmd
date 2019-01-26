@@ -17,6 +17,7 @@ library(mondrian)
 par(mfrow=c(1,1), mar=rep(1,4))
 compose()
 ```
+
 # TL;DR
 
 *Expecting even a well-trained neural net to character-by-character generate text with any semantic content is ambitious. Building and training this LSTM is more didactic than deployable, but we'll weaponize it anyway.*

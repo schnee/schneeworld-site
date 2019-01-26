@@ -15,10 +15,12 @@ tags:
 
 
 
-<p><img src="/post/2019-01-22-make-neural-nets-great-again_files/figure-html/head_image-1.png" width="768" />
-# TL;DR</p>
+<p><img src="/post/2019-01-22-make-neural-nets-great-again_files/figure-html/head_image-1.png" width="768" /></p>
+<div id="tldr" class="section level1">
+<h1>TL;DR</h1>
 <p><em>Expecting even a well-trained neural net to character-by-character generate text with any semantic content is ambitious. Building and training this LSTM is more didactic than deployable, but we’ll weaponize it anyway.</em></p>
 <p><em>All this code is in a <a href="https://github.com/schnee/trump-rnn">github repo</a></em></p>
+</div>
 <div id="r-keras-and-twitter" class="section level1">
 <h1>R, Keras, and Twitter</h1>
 <p>I hadn’t had the opportunity to explore <a href="https://keras.rstudio.com/">RStudio’s API</a> into Keras, a sensible neural network abstraction backed by many lower-level providers such as CNTK, Theano, and Tensorflow. Generating text is fun, and a few year ago, <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">Andrej Karpathy</a> explained how to create a NN to do just that. RStudio has a <a href="https://keras.rstudio.com/articles/examples/lstm_text_generation.html">tutorial for text generation</a>; <a href="https://juliasilge.com/blog/tensorflow-generation/">Julia Silge</a> took it a bit further and I aimed to stand on those shoulders.</p>
