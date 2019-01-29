@@ -181,7 +181,7 @@ ledge_df_long %>%
 
 ```
 
-This image shows all the parties, for completeness. And while historically, the "Nullifiers" certainly existed, they really don't had much to do since `r ledge_df %>% filter(party == "Nullifier") %>% arrange(end) %>% top_n(-1) %>% pull(end)`, which is when `r ledge_df %>% filter(party == "Nullifier") %>% arrange(end) %>% top_n(-1) %>% pull(lastName)` ended the final Nullifier term.
+This image shows all the parties, for completeness. And while historically the "Nullifiers" certainly existed, they really haven't had much to do since `r ledge_df %>% filter(party == "Nullifier") %>% arrange(end) %>% top_n(-1) %>% pull(end)`, which is when `r ledge_df %>% filter(party == "Nullifier") %>% arrange(end) %>% top_n(-1) %>% pull(lastName)` ended the final Nullifier term.
 
 ## Durations
 
@@ -240,7 +240,7 @@ ggplot(decades, aes(x=decade, y=aveTerms, colour=party)) +
   theme(panel.border = element_blank()) + coord_cartesian(ylim=c(0,8))
 ```
 
-Over time, the average number of terms served has increased from 1 to between two and three, with Democrats tending to serve longer in recent years.
+Over time, the average number of terms served has increased from 1 to between two and three, with Democrats tending to serve longer in recent years. I'm not much of a historian, but my understanding is that the orginal intent of the US Congress was as a "part time job". Legislators would come, legislate, and return back to their full-time jobs (the Constitution states that Congress must meet at least once a year, but is mute on session-length). The advantages of seniority in the Legistlature have pretty much displaced the part-time nature - the more senior the Legistlator, the more effective in representing constituents.
 
 ## Gender
 
