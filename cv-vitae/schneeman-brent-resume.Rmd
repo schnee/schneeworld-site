@@ -31,14 +31,15 @@ Broad leadership experience across data scientists, software engineers, data ana
 my_experience <- tibble::tribble(
   ~title, ~start, ~end, ~company, ~why,
   
+  "Managing Director", "Jan 2018", "", "Thought and Memory LLC", "Managing a boutique data science consultancy helping clients build algorithmic solutions and cultures",
   # The DOSH Experience
   
-  "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data- and algorithmic-oriented company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. building the data warehouse and data lake)",
-  "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Collaborated with key business stakeholders to generate marketing campaigns, financial models, sales models, and investor-deck content",
-  "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from application data and to create data pipelines feeding location data to S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift",
-  "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Built xgboost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks",
-  "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Lead transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
-  "Senior Director, Data Science", "Jan 2018", "", "DOSH, LLC", "Directed Data Science efforts in predicting causal impact of multi-vendor markets and price elasticity",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data- and algorithmic-oriented company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. building the data warehouse and data lake)",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with key business stakeholders to generate marketing campaigns, financial models, sales models, and investor-deck content",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from application data and to create data pipelines feeding location data to S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built xgboost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Lead transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Directed Data Science efforts in predicting causal impact of multi-vendor markets and price elasticity",
   
   # The HomeAway Experience
   
