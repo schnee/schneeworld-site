@@ -1,6 +1,6 @@
 ---
 name: Brent Schneeman
-position: "Senior Director, Data Science"
+position: "Data science leader and culture-builder"
 address: "1903 Barton Parkway, Austin TX 78704"
 phone: 512.298.8880
 www: schneeworld.netlify.com
