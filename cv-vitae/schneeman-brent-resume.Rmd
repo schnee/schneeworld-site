@@ -118,7 +118,9 @@ my_volunteer <- tibble::tribble(
   
   "Industry Consultant", "Jan 2018", "", "City of Austin Business & International Affairs Focus Group", "Focusing on Austin TX's outreach to both business and international affairs", 
   
-    "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas"
+    "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas",
+  
+  "Industry Advisor", "May 2015", "", "UT McCombs School of Business, Masters of Science, Business Analytics", "Advising McCombs on Industry needs for Data Science related curricula"
 )
 
 my_volunteer %>% detailed_entries(
@@ -136,9 +138,10 @@ my_volunteer %>% detailed_entries(
 my_certs <- tibble::tribble(
   ~name, ~issued, ~issuer,
   
-  "Neural Networks and Deep Learning", "Nov 2017", "Coursera",
+  "Neural Networks and Deep Learning (Python / Keras)", "Nov 2017", "Coursera",
   "R Programming", "Sept 2014", "Coursera",
-  "The Data Scientists Toolbox", "Sept 2014", "Coursera"
+  "The Data Scientists Toolbox", "Sept 2014", "Coursera",
+  "Certified Scrummaster", "June 2008", "Rally, Inc."
 )
 
 my_certs %>% brief_entries(
