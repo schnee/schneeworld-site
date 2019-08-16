@@ -32,9 +32,9 @@ my_experience <- tibble::tribble(
   # The Alegion Experience
   
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage several person team responsible for creating human-in-the-loop machine learning capabilities into the core product",
-  "Senior Director, Machine Learning", "Jan 2019", "", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate",
-  "Senior Director, Machine Learning", "Jan 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency",
-  "Senior Director, Machine Learning", "Jan 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaisoning between outside Counsel, internal inventors, and executive sponsors",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaisoning between outside Counsel, internal inventors, and executive sponsors",
   
   "Managing Director", "Jan 2018", "", "Thought and Memory LLC", "Managing a boutique data science consultancy helping clients build algorithmic solutions and cultures",
   # The DOSH Experience
