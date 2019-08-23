@@ -48,7 +48,7 @@ my_experience <- tibble::tribble(
   
   # The HomeAway Experience
   
-  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Strengthened Algorithmic and Machine Learning muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelized data-informed decision making across company and with key executives, leading to the formation of the HomeAway Data Science Team. Built and directed 25 person team consisting of Data Scientists and Machine Learning Engineers",
+  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Strengthened Algorithmic and Machine Learning muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelized data-informed decision making across company and with key executives, leading to the formation of the HomeAway Data Science Team. Built and directed 25 person team consisting of PhD Data Scientists and Machine Learning Engineers",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Projects included competitive intelligence, fraud detection, unstructured and semi-structured data mining, search result ranking, photo analysis, price predictions",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Introduced natural language processing, machine learning and defensible statistical inference",
