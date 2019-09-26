@@ -22,7 +22,7 @@ library(vitae)
 # Overview
 Data science executive building and deploying machine learning and algorithmic models in real time customer facing applications. 
 
-Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Pivoted from software engineering roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models. Pivoted again to machine learning engineering, which couples software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
+Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Well-connected in Austin TX and beyone. Pivoted from software engineering leadership roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models. Pivoted again to machine learning engineering, which couples software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
  
 # Experience
 ```{r experience}
