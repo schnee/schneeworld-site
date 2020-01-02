@@ -33,10 +33,10 @@ my_experience <- tibble::tribble(
   
   # The Alegion Experience
   
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency. Delivered Sagemaker-based solution in 2019 for image classification and object detection; delivering Kubeflow and DVC based solution in 2020, focusing on computer vision and natural language processing capabilities",  
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for Sales team",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency. Delivered Sagemaker-based solution in 2019; delivering Kubeflow and DVC based solution in 2020",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaisoning between outside Counsel, internal inventors, and executive sponsors",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Active in local meetups, scheduled to speak at Data Day Texas in January 2020",
 
