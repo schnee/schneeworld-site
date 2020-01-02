@@ -20,9 +20,11 @@ library(vitae)
 ```
 
 # Overview
-Data science executive building and deploying machine learning and algorithmic models in real time customer facing applications. 
+Data science executive building and deploying machine learning and algorithmic models in real-time customer facing applications. 
 
 Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Well-connected in Austin TX and beyone. Pivoted from software engineering leadership roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models. Pivoted again to machine learning engineering, which couples software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
+
+Active in local meetups, presenting on a variety of Data Science and Machine Learning topics. Presented at SxSW in 2014 on a Natural Language Processing project.
  
 # Experience
 ```{r experience}
@@ -31,12 +33,13 @@ my_experience <- tibble::tribble(
   
   # The Alegion Experience
   
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage several person team responsible for creating human-in-the-loop machine learning capabilities into the core product",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for Sales team",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency. Delivered Sagemaker-based solution in 2019; delivering Kubeflow and DVC based solution in 2020",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaisoning between outside Counsel, internal inventors, and executive sponsors",
-  
-  "Managing Director", "Jan 2018", "", "Thought and Memory LLC", "Managing a boutique data science consultancy helping clients build algorithmic solutions and cultures",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Active in local meetups, scheduled to speak at Data Day Texas in January 2020",
+
   # The DOSH Experience
   
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data- and algorithmic-oriented company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. building the data warehouse and data lake)",
