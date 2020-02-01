@@ -22,7 +22,7 @@ library(vitae)
 # Overview
 Data science executive building and deploying machine learning and algorithmic models in real-time customer facing applications. 
 
-Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Well-connected in Austin TX and beyone. Pivoted from software engineering leadership roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models. Pivoted again to machine learning engineering, which couples software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
+Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Well-connected in Austin TX and beyond. Pivoted from software engineering leadership roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models. Pivoted again to machine learning engineering, which couples software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
 
 Active in local meetups, presenting on a variety of Data Science and Machine Learning topics. Presented at SxSW in 2014 on a Natural Language Processing project.
  
@@ -33,30 +33,34 @@ my_experience <- tibble::tribble(
   
   # The Alegion Experience
   
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency. Delivered Sagemaker-based solution in 2019 for image classification and object detection; delivering Kubeflow and DVC based solution in 2020, focusing on computer vision and natural language processing capabilities",  
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for Sales team",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Delivered Amazon Web Server (AWS) Sagemaker and Fast R-CNN-based solution for image classification and object detection for retail fraud prevention use cases", 
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Delivered Kubeflow, Kubernetes, metrics, and DVC-based ML infrastructure, focusing on computer vision and natural language processing capabilities. This provides alternatives to the Sagemaker efforts, and gives greater model composition, reproducibility and data tracking",   
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for efficient sales penetration",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaisoning between outside Counsel, internal inventors, and executive sponsors",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Active in local meetups, scheduled to speak at Data Day Texas in January 2020",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaising between outside Counsel, internal inventors, and executive sponsors",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Active in local meetups, spoke at Data Day Texas in January 2020",
 
   # The DOSH Experience
   
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data- and algorithmic-oriented company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. building the data warehouse and data lake)",
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with key business stakeholders to generate marketing campaigns, financial models, sales models, and investor-deck content",
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from application data and to create data pipelines feeding location data to S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift",
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built xgboost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data- and algorithmic-oriented mobile-app company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. building the data warehouse and data lake)",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with C-level business stakeholders to generate marketing campaigns, financial models, sales models, and investor-deck content",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from application data and to create data pipelines feeding location data to AWS S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built xgboost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks using R and various network analytics packages",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Lead transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Directed Data Science efforts in predicting causal impact of multi-vendor markets and price elasticity",
   
   # The HomeAway Experience
   
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Strengthened Algorithmic and Machine Learning muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelized data-informed decision making across company and with key executives, leading to the formation of the HomeAway Data Science Team. Built and directed 25 person team consisting of PhD Data Scientists and Machine Learning Engineers",
-  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Projects included competitive intelligence, fraud detection, unstructured and semi-structured data mining, search result ranking, photo analysis, price predictions",
-  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis",
+  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Team projects included competitive intelligence, fraud detection, unstructured and semi-structured data mining, search result ranking, photo analysis, and price and occupancy predictions",
+  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis in R",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Introduced natural language processing, machine learning and defensible statistical inference",
+  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Multiple team and individual presentations on ML efforts and affects to C-level audiences",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created and lead 100+ volunteer \"science club\", all trying to swipe right for science",
-  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Partnered with the UT McCombs School of Business, providing guidance and data for the Business Analytics program participant capstone projects. Acted as an external ambassador through public speaking at various events. Built internal crediblity around a scientific method to AB Testing and algorithmic approached to business problems",
+  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Partnered with the UT McCombs School of Business, providing guidance and data for the Business Analytics program participant capstone projects. Acted as an external ambassador through public speaking at various events. Built internal credibility around a scientific method to AB Testing and algorithmic approached to business problems",
+  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Collaborated with Data and Software Engineering organizations to prototype and select big-data solutions based on Hadoop (HDFS, Hive) and Spark",
   "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Directed 25-person team responsible for the Orders and Payments Platform services. The team consisted of Engineers and Architects of all levels and areas in \"the stack\" (UX/UI, web-tier, service layer, ...)",
   "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Worked closely with CFO, CTO, and CPO as the services handled much of HomeAway's revenue",
   "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Lead development and enhancement of PCI Compliant \"payment island\". Architected and implemented payment gateway router which sends transactions from clients to any one of several payment gateways (e.g. Cybersource, Payflow Pro, Yapstone, and Trident)",
@@ -67,7 +71,8 @@ my_experience <- tibble::tribble(
   # The PayPal Experience
   
   "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "Implemented two-factor authentication system (via hardware token) for PayPal and eBay",
-  "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "Scrummaster for next-gen (now current gen) view-layer technology",
+    "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "Formed small team to introduce Agile Software Development methodologies to PayPal, received executive support and developed training material",
+  "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "(Certified) Scrummaster for next-gen (now current gen) view-layer technology",
   "Engineering Manager, Software Development", "Mar 2008", "Jul 2009", "PayPal, Inc", "Lead development of the content management system for PayPal's marketing department",
   
   # The VISA Experience
@@ -100,7 +105,7 @@ my_experience %>% detailed_entries(
 my_education <- tibble::tribble(
   ~title, ~end, ~school,
   "Complex Systems Summer School", "2015", "The Santa Fe Institute",
-  "BSc - Electical Engineering", "1990", "University of Southern California",
+  "BSc - Electrical Engineering", "1990", "University of Southern California",
   "BA - Mathematics", "1990", "Carroll College"
 )
 
@@ -123,7 +128,7 @@ my_volunteer <- tibble::tribble(
   
     "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas",
   
-  "Industry Advisor", "May 2015", "", "UT McCombs School of Business, Masters of Science, Business Analytics", "Advising McCombs on Industry needs for Data Science related curricula"
+  "Industry Adviser", "May 2015", "", "UT McCombs School of Business, Masters of Science, Business Analytics", "Advising McCombs on Industry needs for Data Science related curricula"
 )
 
 my_volunteer %>% detailed_entries(
