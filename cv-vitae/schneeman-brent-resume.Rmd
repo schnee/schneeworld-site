@@ -20,7 +20,7 @@ library(vitae)
 ```
 
 # Overview
-Data science executive building and deploying machine learning and algorithmic models in real-time customer facing applications. 
+Data science executive building and deploying machine learning and algorithmic models in real-time customer facing applications. Seeking role influential in operationalizing machine learning in production services.
 
 Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Well-connected in Austin TX and beyond. Software engineering and leadership skills greatly facilitated a re-focus on data science and machine learning as writing code enabled rapid learning and hypothesis testing. Combining engineering and science to help companies unlock the value of their data as they pivot to modern algorithmic-based business models. Pivoted to machine learning engineering, which couples software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
 
