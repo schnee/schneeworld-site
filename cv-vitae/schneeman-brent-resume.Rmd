@@ -1,6 +1,6 @@
 ---
 name: Brent Schneeman
-position: "Data science leader and culture-builder"
+position: "Impact and Influence"
 address: "1903 Barton Parkway, Austin TX 78704"
 phone: 512.298.8880
 www: schneeworld.netlify.com
@@ -22,10 +22,28 @@ library(vitae)
 # Overview
 Data science executive building and deploying machine learning and algorithmic models in real-time customer facing applications. Seeking role influential in operationalizing machine learning in production services.
 
-Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Well-connected in Austin TX and beyond. Software engineering and leadership skills greatly facilitated a re-focus on data science and machine learning as writing code enabled rapid learning and hypothesis testing. Combining engineering and science to help companies unlock the value of their data as they pivot to modern algorithmic-based business models. Pivoted to machine learning engineering, which couples software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
+I have broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. My software engineering and leadership skills greatly facilitated a re-focus on data science and machine learning as writing code enabled rapid learning and hypothesis testing. I am adept at combining engineering and science to help companies unlock the value of their data as they pivot to modern algorithmic-based business models. I have overseen and architected data data solutions to provide APIs and platforms which expose ML and AI to stakeholders.
 
-Active in local meetups and conferences, presenting on a variety of Data Science and Machine Learning topics.
+I am active in local meetups and conferences, presenting on a variety of Data Science and Machine Learning topics, as well as being and Advisory Board Member for UT-Austin.
+
+# Expertise
+```{r expertise}
+my_expertise <- tibble::tribble(
+  ~item, ~desc,
+  "Languages", "Python, R, SQL, Java",
+  "Big Data and Streaming", "Spark, Kafka, ElasticSearch",
+  "Datasets", "JSON, Schematic, CSV",
+  "DevOps", "Kubernetes, AWS, Kubeflow",
+  "Project Management", "Agile, Scrum, Kanban",
+  "Version Control", "Git, DVC",
+  "Skills", "Operationalizing algorithms, team building and leading, strategic thinking"
+)
  
+my_expertise %>% 
+  arrange(item) %>%
+  knitr::kable(col.names = NULL, booktabs=TRUE, toprule=NULL, bottomrule=NULL)
+```
+
 # Experience
 ```{r experience}
 my_experience <- tibble::tribble(
@@ -34,7 +52,7 @@ my_experience <- tibble::tribble(
   # The Alegion Experience
   
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency, chiefly for image annotation tasks. System targeted for Kubernetes-based infrastructure hosted on Amazon Web Services (AWS)",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Delivered AWS Sagemaker and Fast R-CNN-based solution for image classification and object detection for retail fraud prevention use cases", 
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Delivered AWS Sagemaker and \"Faster R-CNN\"-based solution for image classification and object detection for customer-specific use cases. ML improved throughput by 30% over the fully-manual process, and used AWS Lambda functions and SQS messaging", 
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Delivered Kubeflow, Kubernetes, metrics, and DVC-based ML infrastructure, focusing on computer vision and natural language processing capabilities. This provides alternatives to the Sagemaker efforts, and gives greater model composition, reproducibility and data tracking. Target use cases for computer vision and NLP",   
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for efficient sales penetration, based on real-world machine learning development processes",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
@@ -46,9 +64,9 @@ my_experience <- tibble::tribble(
   # The DOSH Experience
   
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data- and algorithmic-oriented mobile-app company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. building the data warehouse and data lake)",
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with C-level business stakeholders to generate marketing campaigns, financial models, sales models, and investor-deck content",
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from application data and to create data pipelines feeding location data to AWS S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift",
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built xgboost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks using R and various network analytics packages",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Advised C-level business partners to generate marketing campaigns, financial models, sales models, and investor-deck content",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from Node.js-based application data and to create ETL pipelines feeding location data to AWS S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift via ETL system build on top of Matillion",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built XGBoost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks using R and various network analytics packages",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Lead transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Directed Data Science efforts in predicting causal impact of multi-vendor markets and price elasticity",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Reported to Sr Vice President, Engineering",
