@@ -1,6 +1,6 @@
 ---
 name: Brent Schneeman
-position: "Impact and Influence"
+position: "Engineering and Data Science"
 address: "1903 Barton Parkway, Austin TX 78704"
 phone: 512.298.8880
 www: schneeworld.netlify.com
@@ -22,21 +22,34 @@ library(vitae)
 # Overview
 Data science executive building and deploying machine learning and algorithmic models in real-time customer facing applications. Seeking role influential in operationalizing machine learning in production services.
 
-I have broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. My software engineering and leadership skills greatly facilitated a re-focus on data science and machine learning as writing code enabled rapid learning and hypothesis testing. I am adept at combining engineering and science to help companies unlock the value of their data as they pivot to modern algorithmic-based business models. I have overseen and architected data data solutions to provide APIs and platforms which expose ML and AI to stakeholders.
+I have broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. My software engineering and leadership skills greatly facilitated my re-focus on data science and machine learning as writing code enabled rapid learning and hypothesis testing. I am adept at combining engineering and science to help companies unlock the value of their data as they pivot to modern algorithmic-based business models. I have overseen and architected data solutions to provide APIs and platforms which expose ML and AI to stakeholders.
 
 I am active in local meetups and conferences, presenting on a variety of Data Science and Machine Learning topics, as well as being and Advisory Board Member for UT-Austin.
 
 # Expertise
-```{r expertise}
+
+## Technical
+```{r technical}
 my_expertise <- tibble::tribble(
   ~item, ~desc,
   "Languages", "Python, R, SQL, Java",
   "Big Data and Streaming", "Spark, Kafka, ElasticSearch",
   "Datasets", "JSON, Schematic, CSV",
   "DevOps", "Kubernetes, AWS, Kubeflow",
-  "Project Management", "Agile, Scrum, Kanban",
   "Version Control", "Git, DVC",
-  "Skills", "Operationalizing algorithms, team building and leading, strategic thinking"
+)
+ 
+my_expertise %>% 
+  arrange(item) %>%
+  knitr::kable(col.names = NULL, booktabs=TRUE, toprule=NULL, bottomrule=NULL, escape=FALSE)
+```
+## Organizational
+```{r organizational}
+my_expertise <- tibble::tribble(
+  ~item, ~desc,
+  "Project Management", "Agile, Scrum, Kanban",
+  "Collaboration", "Strategic thinking, Engineering management, C-Level advisor",
+  "Miscellaneous", "Operationalizing algorithms, product-oriented"
 )
  
 my_expertise %>% 
@@ -51,15 +64,22 @@ my_experience <- tibble::tribble(
   
   # The Alegion Experience
   
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency, chiefly for image annotation tasks. System targeted for Kubernetes-based infrastructure hosted on Amazon Web Services (AWS)",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Delivered AWS Sagemaker and \"Faster R-CNN\"-based solution for image classification and object detection for customer-specific use cases. ML improved throughput by 30% over the fully-manual process, and used AWS Lambda functions and SQS messaging", 
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Delivered Kubeflow, Kubernetes, metrics, and DVC-based ML infrastructure, focusing on computer vision and natural language processing capabilities. This provides alternatives to the Sagemaker efforts, and gives greater model composition, reproducibility and data tracking. Target use cases for computer vision and NLP",   
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for efficient sales penetration, based on real-world machine learning development processes",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
+  "Delivered AWS Sagemaker and Faster R-CNN-based solution for object classification and detection for customer-specific video and image use cases. ML improved throughput by 30% over the fully-manual process, and uses AWS Lambda functions and SQS messaging", 
+    "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
+  "Lead efforts for cross-frame entity resolution of objects in videos. Current heuristic approach determined \`good enough\` relative to ML/AI approaches. Team deployed to higher ROI efforts", 
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
+  "Delivered Kubeflow, Kubernetes, Weights and Biases-based metrics, and DVC-based ML infrastructure, focusing on computer vision and natural language processing capabilities. This provides alternatives to the Sagemaker efforts, and gives greater model composition, reproducibility and data tracking. Target use cases for computer vision and NLP",  
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Personally built, trained and deployed color-classification CNN-based model for retail fashion catalog. Leveraged aforementioned ML infrastructure. Model allows Alegion to by-pass Crowd for certain color classes, greatly increasing margin",
+    "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
+  "Architected and lead delivery of Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency, chiefly for image annotation tasks. System deployed on Kubernetes-based infrastructure hosted on Amazon Web Services (AWS)",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for efficient sales penetration, based on real-world machine learning engineerig processes and rapid hypothesis testing",
+    "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Collaborate with VP Sales and CEO to provide high-touch contract negotiations with key customers. Provide superlative support for Sales infront of these customers",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assumed roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaising between outside Counsel, internal inventors, and executive sponsors",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Active in local meetups, spoke at Data Day Texas in January 2020",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Report to Vice President, Engineering; dotted line to CTO",
+  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Reporting to Vice President, Engineering; dotted line to CTO",
 
   # The DOSH Experience
   
