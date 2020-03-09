@@ -22,7 +22,7 @@ library(vitae)
 # Overview
 Data science executive building and deploying machine learning and algorithmic models in real-time customer facing applications. Seeking IC or management role influential in operationalizing machine learning in production services.
 
-I have broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. My software engineering and leadership skills greatly facilitated my re-focus on data science and machine learning as writing code enabled rapid learning and hypothesis testing. I am adept at combining engineering and science to help companies unlock the value of their data as they pivot to modern algorithmic-based business models. I have overseen and architected data solutions to provide APIs and platforms which expose ML and AI to stakeholders.
+I have broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. My software engineering and leadership skills greatly facilitated my re-focus on data science and machine learning as writing code enabled rapid learning and hypothesis testing. I am adept at combining engineering and science to help companies unlock the value of their data as they pivot to modern algorithmic-based business models. I have overseen and architected data solutions to provide APIs and platforms which expose ML and AI to stakeholders and bring strong hands-on experience in machine learning project, natural language processing (NLP) and computer vision (CV).
 
 I am active in local meetups and conferences, presenting on a variety of Data Science and Machine Learning topics, as well as being an Advisory Board Member for UT-Austin, McCombs School of Business Masters of Science Business Analytics program since 2015.
 
@@ -52,8 +52,8 @@ my_expertise %>%
 my_expertise <- tibble::tribble(
   ~item, ~desc,
   "Project Management", "Agile, Scrum, Kanban",
-  "Collaboration", "Strategic thinking, Engineering and Science leadership, C-Level advisor, Team design",
-  "Miscellaneous", "Operationalizing algorithms, product orientation"
+  "Collaboration", "Strategic thinking, Engineering and Science leadership, C-Level advisor, Team design, Culture change",
+  "Miscellaneous", "Operationalizing algorithms, Product orientation, Curricula design"
 )
  
 my_expertise %>% 
@@ -69,7 +69,7 @@ my_experience <- tibble::tribble(
   # The Alegion Experience
   
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
-  "Delivered AWS Sagemaker and Faster R-CNN-based solution for object classification and detection for customer-specific video and image use cases. ML improved throughput by 30% over the fully-manual process, and uses AWS Lambda functions and SQS messaging", 
+  "Delivered Computer Vision solution using AWS Sagemaker and Faster R-CNN-based for object classification and detection for customer-specific video and image use cases. ML improved throughput by 30% over the fully-manual process, and uses AWS Lambda functions and SQS messaging", 
     "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
   "Lead efforts for cross-frame entity resolution of objects in videos. Current heuristic approach determined \`good enough\` relative to ML/AI approaches. Team deployed to higher ROI efforts", 
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
@@ -100,13 +100,13 @@ my_experience <- tibble::tribble(
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Manage, Bootstrap, and Provide Strategic Vision for data science initiatives, such as Inventory Ranking and Optimization, Content Recommendations, Marketplace Health, Image Quality, Chatbot AI Services, and other business critical efforts",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Strengthened Algorithmic and Machine Learning muscle through project-based leadership. Partnering with disparate product lines to answer questions quicker, and find new questions faster. Evangelized data-informed decision making across company and with key executives, leading to the formation of the HomeAway Data Science Team. Built and directed 25 person team consisting of PhD Data Scientists and Machine Learning Engineers",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Team projects included competitive intelligence, fraud detection, bot detection, unstructured and semi-structured data mining, search result ranking, photo analysis, and price and occupancy predictions",
-    "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Partnered with the UT McCombs School of Business, providing hiring-manager guidance and data for the Masters of Science Business Analytics program. Hired 3 graduates from the program",
+    "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Partnered with the UT McCombs School of Business, providing hiring-manager guidance and data for the Masters of Science Business Analytics program. Hired 3 graduates from the program (see Volunteering section below)",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Individual contributor on ML modeling for consumer facing chatbot. Duties included labeling data, building LSTM-based intent classifier (in Keras), collaborating with data and software engineering to determine application architecture",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created experience-based recommendation service that found activities in one location that are similar to activities in another. A word2vec-based latent embedding space was used to find the similar activities",
     "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created photo-similarity service that allowed clients to explore images of properties that are similar to another properties photos. An 'image2vec' vector space was built from images and the service navigated that space",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created Machine Learning pipeline in collaboration with infrastructure team within HomeAway to aid model production and deployment",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created Data Science Internship Program for HomeAway University",
-    "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Using R and later Spark, created models that compared geographic representation of HomeAway properties with the representation from a competitor. Initially, TF-IDF vectors were built from property descriptions and distances measured between those vectors determined duplicate or unique properties, but LDA distributions were used as the project matured. A similar transition from R to Spark occurred as the need for greater parallelization became apparent",
+    "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Using R and later Spark, created models that compared geographic representation of HomeAway properties with the representation from a competitor. Initially, Natural Language Processing techniques such as TF-IDF vectors were built from property descriptions and distances measured between those vectors determined duplicate or unique properties, but LDA distributions were leveraged as the project matured. A similar transition from R to Spark occurred as the need for greater parallelization became apparent",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis in R",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Introduced natural language processing, machine learning, and defensible statistical inference",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Multiple team and individual presentations on ML efforts and affects to C-level audiences",
@@ -183,7 +183,7 @@ my_volunteer <- tibble::tribble(
   
     "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas",
   
-  "Industry Adviser", "May 2015", "", "UT McCombs School of Business, Masters of Science, Business Analytics", "Advising McCombs on Industry needs for Data Science related curricula"
+  "Industry Adviser", "May 2015", "", "UT McCombs School of Business, Masters of Science, Business Analytics", "Advising McCombs on Industry needs for Data Science related curricula. Directly hired three graduates and influential in hiring 4 others"
 )
 
 my_volunteer %>% detailed_entries(
