@@ -53,7 +53,7 @@ my_expertise <- tibble::tribble(
   ~item, ~desc,
   "Project Management", "Agile, Scrum, Kanban",
   "Collaboration", "Strategic thinking, Engineering and Science leadership, C-Level advisor, Team design, Culture change",
-  "Miscellaneous", "Operationalizing algorithms, Product orientation, Curricula design"
+  "Miscellaneous", "Operationalizing algorithms, Product orientation, Academic liason, Curricula design"
 )
  
 my_expertise %>% 
@@ -90,7 +90,7 @@ my_experience <- tibble::tribble(
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built a 9-person diverse team of Data Scientists, Data Analysts, and Data Engineers, all focused on evolving Dosh to a more data- and algorithmic-oriented mobile-app company. The Data and Analytics team was responsible for Data Science, Business Intelligence and Data Engineering (e.g. building the data warehouse and data lake)",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Advised C-level business partners to generate marketing campaigns, financial models, sales models, and investor-deck content",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from Node.js-based application data and to create ETL pipelines feeding location data to AWS S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift via ETL system build on top of Matillion",
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Built XGBoost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks using R and various network analytics packages",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Sole contributor to XGBoost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks using R and various network analytics packages",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Lead transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Directed Data Science efforts in predicting causal impact of multi-vendor markets and price elasticity",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Reported to Sr Vice President, Engineering",
@@ -106,7 +106,7 @@ my_experience <- tibble::tribble(
     "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created photo-similarity service that allowed clients to explore images of properties that are similar to another properties photos. An 'image2vec' vector space was built from images and the service navigated that space",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created Machine Learning pipeline in collaboration with infrastructure team within HomeAway to aid model production and deployment",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created Data Science Internship Program for HomeAway University",
-    "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Using single compute nodes and later Spark, created models that compared geographic representation of HomeAway properties with the representation from a competitor. Initially, Natural Language Processing techniques such as TF-IDF vectors were built from property descriptions and distances measured between those vectors determined duplicate or unique properties, but LDA distributions were leveraged as the project matured. A similar transition from single compute resources to Spark occurred as the need for greater parallelization became apparent",
+    "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Using single compute nodes and later Spark, sole contributor to models that compared geographic representation of HomeAway properties with the representation from a competitor. Initially, Natural Language Processing techniques such as TF-IDF vectors were built from property descriptions and distances measured between those vectors determined duplicate or unique properties, but LDA distributions were leveraged as the project matured. A similar transition from single compute resources to Spark occurred as the need for greater parallelization became apparent",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis in R",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Introduced natural language processing, machine learning, and defensible statistical inference",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Multiple team and individual presentations on ML efforts and affects to C-level audiences",
