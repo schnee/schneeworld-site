@@ -33,14 +33,15 @@ I am active in local meetups and conferences, presenting on a variety of Data Sc
 my_expertise <- tibble::tribble(
   ~item, ~desc,
   "Languages", "Python, R, SQL, Java",
-  "Big Data and Streaming", "Spark, Kafka, ElasticSearch",
+  "Big Data and Streaming", "Spark, Kafka, ElasticSearch, Hadoop, Hive, HDFS",
   "Datasets", "JSON, Schematic, CSV, Schema Design, ",
-  "DevOps", "Kubernetes, AWS, Kubeflow",
+  "DevOps", "Kubernetes, AWS, Kubeflow, Docker",
   "Machine Learning", "Tensorflow, Keras, Pandas, Tidyverse",
   "Supervised Learning", "Regression, Random Forest, Gradient Boosted Trees",
   "Unsupervised Learning", "K-means and hierarchical clustering, PCA, tSNE",
   "Deep Learning", "CNN, RNN, LSTM, Active Learning, Transfer Learning",
   "Version Control", "Git, DVC",
+  "Engineering", "REST, Object Oriented Design, Test Driven Develompment"
 )
  
 my_expertise %>% 
@@ -52,7 +53,7 @@ my_expertise %>%
 my_expertise <- tibble::tribble(
   ~item, ~desc,
   "Project Management", "Agile, Scrum, Kanban",
-  "Collaboration", "Strategic thinking, Engineering and Science leadership, C-Level advisor, Team design, Culture change",
+  "Collaboration", "Strategic thinking, Engineering and Science leadership, C-Level advisor, Team design",
   "Miscellaneous", "Operationalizing algorithms, Product orientation, Academic liason, Curricula design"
 )
  
