@@ -84,6 +84,10 @@ my_experience <- tibble::tribble(
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaising between outside Counsel, internal inventors, and executive sponsors",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Active in local meetups, spoke at Data Day Texas in January 2020",
   "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Reporting to Vice President, Engineering; dotted line to CTO",
+  
+  # UT MSBA Experience
+  
+  "Industry Advisor", "2015", "", "UT McCombs School of Business", "Advising McCombs on current industry needs for the Masters of Science Business Analytics curricula, including Database, Data engineering and ML modeling concepts. Ran three capstone projects. Hired three graduates and was influential in the hiring of four more.",
 
   # The DOSH Experience
   
@@ -181,9 +185,7 @@ my_volunteer <- tibble::tribble(
   
   "Industry Consultant", "Jan 2018", "", "City of Austin Business & International Affairs Focus Group", "Focusing on Austin TX's outreach to both business and international affairs", 
   
-    "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas",
-  
-  "Industry Adviser", "May 2015", "", "UT McCombs School of Business, Masters of Science, Business Analytics", "Advising McCombs on Industry needs for Data Science related curricula. Directly hired three graduates and influential in hiring 4 others"
+    "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas"
 )
 
 my_volunteer %>% detailed_entries(
