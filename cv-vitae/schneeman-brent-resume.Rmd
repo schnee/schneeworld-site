@@ -69,22 +69,22 @@ my_experience <- tibble::tribble(
   
   # The Alegion Experience
   
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", 
   "Delivered Computer Vision solution using AWS Sagemaker and Faster R-CNN-based for object classification and detection for customer-specific video and image use cases. ML improved throughput by 30% over the fully-manual process, and uses AWS Lambda functions and SQS messaging", 
-    "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
-  "Lead efforts for cross-frame entity resolution of objects in videos. Current heuristic approach determined \`good enough\` relative to ML/AI approaches. Team deployed to higher ROI efforts", 
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
+    "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", 
+  "Led efforts for cross-frame entity resolution of objects in videos. Current heuristic approach determined \`good enough\` relative to ML/AI approaches. Team deployed to higher ROI efforts", 
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", 
   "Delivered Kubeflow, Kubernetes, Weights and Biases-based metrics, and DVC-based ML infrastructure, focusing on computer vision and natural language processing capabilities. This provides alternatives to the Sagemaker efforts, and gives greater model composition, reproducibility and data tracking. Target use cases for computer vision and NLP",  
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Personally built, trained and deployed color-classification CNN-based model for retail fashion catalog. Leveraged aforementioned ML infrastructure. Model allows Alegion to by-pass Crowd for certain color classes, greatly increasing margin",
-    "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", 
-  "Architected and lead delivery of Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency, chiefly for image annotation tasks. System deployed on Kubernetes-based infrastructure hosted on Amazon Web Services (AWS)",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for efficient sales penetration, based on real-world machine learning engineering processes and rapid hypothesis testing",
-    "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Collaborate with VP Sales and CEO to provide high-touch contract negotiations with key customers. Provide superlative support for Sales in front of these customers",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assumed roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaising between outside Counsel, internal inventors, and executive sponsors",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Active in local meetups, spoke at Data Day Texas in January 2020",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Reporting to Vice President, Engineering; dotted line to CTO",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Personally built, trained and deployed color-classification CNN-based model for retail fashion catalog. Leveraged aforementioned ML infrastructure. Model allows Alegion to by-pass Crowd for certain color classes, greatly increasing margin",
+    "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", 
+  "Architected and led delivery of Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency, chiefly for image annotation tasks. System deployed on Kubernetes-based infrastructure hosted on Amazon Web Services (AWS)",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for efficient sales penetration, based on real-world machine learning engineering processes and rapid hypothesis testing",
+    "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Collaborate with VP Sales and CEO to provide high-touch contract negotiations with key customers. Provide superlative support for Sales in front of these customers",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Assumed roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaising between outside Counsel, internal inventors, and executive sponsors",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Active in local meetups, spoke at Data Day Texas in January 2020",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Reporting to Vice President, Engineering; dotted line to CTO",
   
   # UT MSBA Experience
   
@@ -96,7 +96,7 @@ my_experience <- tibble::tribble(
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Advised C-level business partners to generate marketing campaigns, financial models, sales models, and investor-deck content",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Collaborated with technical stakeholders to create a data warehouse from Node.js-based application data and to create ETL pipelines feeding location data to AWS S3 buckets for graph analysis. Eliminated redundant RDBMS systems in-favor of AWS Redshift via ETL system build on top of Matillion",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Sole contributor to XGBoost-based models predicting offer redemption (transactions) and deeply analyzed fraudulent behaviors and referral networks using R and various network analytics packages",
-  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Lead transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
+  "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Led transformation of company dashboards from 'vanity-metrics' to business-focused KPIs",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Directed Data Science efforts in predicting causal impact of multi-vendor markets and price elasticity",
   "Senior Director, Data Science", "Jan 2018", "Feb 2019", "DOSH, LLC", "Reported to Sr Vice President, Engineering",
   
@@ -115,14 +115,14 @@ my_experience <- tibble::tribble(
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Bayesian and frequentist multi-variate test analysis in R",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Introduced natural language processing, machine learning, and defensible statistical inference",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Multiple team and individual presentations on ML efforts and affects to C-level audiences",
-  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created and lead 100+ volunteer \"science club\", all trying to swipe right for science",
+  "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Created and led 100+ volunteer \"science club\", all trying to swipe right for science",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Acted as an external ambassador through public speaking at various events. Built internal credibility around a scientific method to AB Testing and algorithmic approached to business problems",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Collaborated with Data and Software Engineering organizations to prototype and select big-data solutions based on Hadoop (HDFS, Hive) and Spark",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Leadership role in Introduction to Data Science courses, Mentorship Program, HADES",
   "Senior Director, Data Science", "Jul 2014", "Dec 2017", "HomeAway, an Expedia Company", "Reported to CIO",  
   "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Directed 25-person team responsible for the Orders and Payments Platform services. The team consisted of Engineers and Architects of all levels and areas in \"the stack\" (UX/UI, web-tier, service layer, ...)",
   "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Worked closely with CFO, CTO, and CPO as the services handled much of HomeAway's revenue",
-  "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Lead development and enhancement of PCI Compliant \"payment island\". Architected and implemented payment gateway router which sends transactions from clients to any one of several payment gateways (e.g. Cybersource, Payflow Pro, Yapstone, and Trident)",
+  "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Led development and enhancement of PCI Compliant \"payment island\". Architected and implemented payment gateway router which sends transactions from clients to any one of several payment gateways (e.g. Cybersource, Payflow Pro, Yapstone, and Trident)",
   "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Established HomeAway Inventions Program, which is responsible for identifying, cataloging and protecting intellectual property. Sole- or Co-Inventor on several pre-patent inventions",
   "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Technical member of global payment processor negotiation team, responsible for technical evaluation and diligence for HomeAway's successful selection of a global payment processor",
   "Director, Software Engineering", "Jun 2010", "Jul 2014", "HomeAway, an Expedia Company", "Team Lead delivering Unified Payments Services, PCI and SOX compliance, and migrating vertical payment flows to common service-based API",
@@ -133,7 +133,7 @@ my_experience <- tibble::tribble(
   "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "Implemented two-factor authentication system (via hardware token) for PayPal and eBay",
     "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "Formed small team to introduce Agile Software Development methodologies to PayPal, received executive support and developed training material",
   "Principal Software Engineer", "Mar 2007", "Jun 2010", "PayPal, Inc", "(Certified) Scrummaster for next-gen (now current gen) view-layer technology",
-  "Engineering Manager, Software Development", "Mar 2008", "Jul 2009", "PayPal, Inc", "Lead development of the content management system for PayPal's marketing department",
+  "Engineering Manager, Software Development", "Mar 2008", "Jul 2009", "PayPal, Inc", "Led development of the content management system for PayPal's marketing department",
   
   # The VISA Experience
   
@@ -143,7 +143,7 @@ my_experience <- tibble::tribble(
   
   "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Developed reference standard Directory Server for Verified by Visa(tm) implementation of the Three D Secure payment protocol",
   
-  "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Lead testing and qualification efforts for Verified by Visa(tm) certifications",
+  "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Led testing and qualification efforts for Verified by Visa(tm) certifications",
   
   # The Globeset Experience
   
