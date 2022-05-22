@@ -3,7 +3,7 @@ name: Brent Schneeman
 position: "Data science leader and culture-builder"
 address: "1903 Barton Parkway, Austin TX 78704"
 phone: 512.298.8880
-www: schneeworld.netlify.com
+#www: schneeworld.netlify.com
 email: "schneeman@gmail.com"
 twitter: schnee
 github: schnee
@@ -22,23 +22,26 @@ library(vitae)
 # Overview
 Data science executive building and deploying machine learning and algorithmic models in real-time customer facing applications. 
 
-Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Well-connected in Austin TX and beyone. Pivoted from software engineering leadership roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models. Pivoted again to machine learning engineering, which couples software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
+Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. Well-connected in Austin TX and beyond. Pivoted from software engineering leadership roles to data science to help companies unlock the value of their data as they pivot to modern transaction-based business models. Pivoted again to machine learning engineering, merging software sensibilities with algorithmic approaches to provide APIs and platforms which expose ML and AI to stakeholders.
 
-Active in local meetups, presenting on a variety of Data Science and Machine Learning topics. Presented at SxSW in 2014 on a Natural Language Processing project.
+Active in local meetups, presenting on a variety of Data Science and Machine Learning topics.
  
 # Experience
 ```{r experience}
 my_experience <- tibble::tribble(
   ~title, ~start, ~end, ~company, ~why,
   
+  # The Overhaul Experience
+  "Vice President, Data Science and Analytics", "June 2020", "", "Overhaul, Inc", "First hire with data-specific focus, builing Data organizaion with Data Engineering, Data Analytics, Data Science and Machine Learning focus. Guided by collaboration, built team to deliver internal and external data-as-a-product features (e.g. reports, data assets). Provided direction for machine learning and data transformation pipelines, and for a robust data warehouse strategy.",
+  
   # The Alegion Experience
   
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency. Delivered Sagemaker-based solution in 2019 for image classification and object detection; delivering Kubeflow and DVC based solution in 2020, focusing on computer vision and natural language processing capabilities",  
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for Sales team",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaisoning between outside Counsel, internal inventors, and executive sponsors",
-  "Senior Director, Machine Learning", "March 2019", "", "Alegion, Inc", "Active in local meetups, scheduled to speak at Data Day Texas in January 2020",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Ideated and architected Active Learning workflow coupling machine learning with human annotators, which provides significant workflow efficiency. Delivered Sagemaker-based solution in 2019 for image classification and object detection; delivering Kubeflow and DVC based solution in 2020, focusing on computer vision and natural language processing capabilities",  
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Identified new product opportunities and developed new SKUs for Sales team",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Manage machine learning engineering and architecture team responsible for creating human-in-the-loop machine learning capabilities into the core product",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Assume roles of engineering leader, scrummaster, product owner, and team member as appropriate; skilled at blending Machine Learning and Software Engineering process techniques to deliver ML-based solutions",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Implemented and directed Alegion's intellectual property program by liaisoning between outside Counsel, internal inventors, and executive sponsors",
+  "Senior Director, Machine Learning", "March 2019", "April 2020", "Alegion, Inc", "Active in local meetups, scheduled to speak at Data Day Texas in January 2020",
 
   # The DOSH Experience
   
@@ -72,7 +75,7 @@ my_experience <- tibble::tribble(
   
   # The VISA Experience
   
-  "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Managed Corporate Card Expense Reporting service for large, multi-national financial institutions",
+  "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Managed development team delivering Corporate Card Expense Reporting service for large, multi-national financial institutions",
   
   "Software Engineer", "Nov 2000", "Mar 2007", "Visa, Inc", "Implemented central directory server for Verified by Visa",
   
