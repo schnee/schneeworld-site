@@ -8,10 +8,12 @@ email: "schneeman@gmail.com"
 #twitter: schnee
 github: schnee
 linkedin: schneeman
-headcolor: 000000
+#headcolor: 000000
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
-  vitae::awesomecv
+  vitae::awesomecv:
+    includes:
+      in_header: preamble.tex
 ---
 
 ```{r setup, include=FALSE}
@@ -149,7 +151,6 @@ my_experience %>% detailed_entries(
 )
 
 ```
-
 # Education
 ```{r education}
 
@@ -207,6 +208,7 @@ my_certs %>% brief_entries(
   with = issuer
 )
 ```
+
 
 # Technical Expertise
 ```{r techexpert}
