@@ -8,7 +8,7 @@ email: "schneeman@gmail.com"
 #twitter: schnee
 github: schnee
 linkedin: schneeman
-#headcolor: 000000
+headcolor: 224190
 date: "`r format(Sys.time(), '%B %Y')`"
 output: 
   vitae::awesomecv:
