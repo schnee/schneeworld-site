@@ -51,8 +51,9 @@ my_experience <- tibble::tribble(
   
   # The Overhaul Experience
   
-  "Vice President, Data Science and Analytics", "June 2020", "August 2022", "Overhaul, Inc", "First hire with data-specific focus, built Data organizaion with Data Engineering, Data Analytics, Data Science and Machine Learning focus. Guided by collaboration, built team to deliver internal and external data-as-a-product features (e.g. reports, data assets, ML models). Provided direction and product strategy for machine learning and data transformation pipelines, and for a robust data warehouse strategy.",
-  "Vice President, Data Science and Analytics", "June 2020", "August 2022", "Overhaul, Inc", "Six-month expat assignment in 2022 to build Data Science and Engineering team in Ireland. Partnered with local recruiters. Also partnered with local groups and universities to build recruitment pipeline.",
+  
+  "Vice President, Data Science and Analytics", "June 2020", "August 2022", "Overhaul, Inc", "First hire with data-specific focus, builing Data organizaion with Data Engineering, Data Analytics, Data Science and Machine Learning focus. Guided by collaboration, built team to deliver internal and external data-as-a-product features (e.g. reports, data assets). Provided direction for machine learning and data transformation pipelines, and for a robust data warehouse strategy. Resulted in massive automation of data delivery to end customers (thereby realizing operational efficiencies). ML efforts included transportation duration models, scoring of security events, and agent-based modeling of backhaul opportunities.",
+  "Vice President, Data Science and Analytics", "June 2020", "August 2022", "Overhaul, Inc", "Six-month expat assignment in 2022 to build Data Science and Engineering team in Ireland. Partnered with local recruiters, local groups and universities to build recruitment pipeline and better understand European hiring processes and talent.",
   
   # The Alegion Experience
   
