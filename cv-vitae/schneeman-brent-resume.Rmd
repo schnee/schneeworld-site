@@ -22,7 +22,7 @@ library(vitae)
 ```
 
 # Overview
-AI and machine learning executive building teams deploying algorithmic models in real-time customer facing applications. 
+AI and machine learning executive building teams and strategies to deploy algorithmic models in real-time customer facing applications. 
 
 Broad leadership experience across data scientists, software engineers, data analysts, and data engineers, having scaled-from-zero durable teams across disciplines and companies. My software engineering and leadership skills greatly facilitated my re-focus on data science and machine learning as writing code enabled rapid learning and hypothesis testing. Adept at combining engineering and science to help companies unlock the value of their data as they pivot to modern algorithmic-based business models. Overseen and architected data solutions to provide APIs and platforms which expose ML and AI to stakeholders and bring strong hands-on experience in machine learning project, natural language processing (NLP) and computer vision (CV).
 
