@@ -51,6 +51,11 @@ my_expertise %>%
 ```{r experience}
 my_experience <- tibble::tribble(
   ~title, ~start, ~end, ~company, ~why,
+  # Thought and Memory
+    "AI Consultant", "January 2024", "March 2024", "Thought and Memory LLC", "Contracting with PMG Advertising. Helping bring machine learning and AI to the creative process. Entails working with business stakeholders to collect requirements and manage their expectations. Building team of dedicated feature and machine learning engineers. Creating first models around creative artifacts ('ads') to predict several KPIs,",
+    "AI Consultant", "January 2023", "September 2023", "Thought and Memory LLC", "Architected, designed, and implemented candidate screening and intake system based on Large Languange Models for undisclosed client. System screened candidates based on client-defined criteria and provided feedback to candidates and client. Created mock-interview for candidates and provided ML-based scores after mock interview was complete. Increased candidate NPS by 12%.",
+  "Logistics Consultant", "September 2022", "December 2022", "Thought and Memory LLC", "Architected and implemented algorithmic jobsite maintenance scheduling system for undisclosed client. This system reduced scheduling time by 50% and overall service time by 20%",
+
   
   # The Overhaul Experience
   
