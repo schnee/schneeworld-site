@@ -51,6 +51,8 @@ my_expertise %>%
 ```{r experience}
 my_experience <- tibble::tribble(
   ~title, ~start, ~end, ~company, ~why,
+  # PMG
+  "Director, AI", "March 2024", "current", "PMG", "Leading AI and machine learning efforts at PMG, specifically in intersecting the content of advertisements and KPI performance. Evolving customer-facing technology from descriptive analytics to predictive, leveraging GenAI and classic machine learning.",
   # Thought and Memory
     "AI Consultant", "January 2024", "March 2024", "Thought and Memory LLC", "Contracting with PMG Advertising. Helping bring machine learning and AI to the creative process. Entails working with business stakeholders to collect requirements and manage their expectations. Building team of dedicated feature and machine learning engineers. Creating first models around creative artifacts ('ads') to predict several KPIs,",
     "AI Consultant", "January 2023", "September 2023", "Thought and Memory LLC", "Architected, designed, and implemented candidate screening and intake system based on Large Languange Models for undisclosed client. System screened candidates based on client-defined criteria and provided feedback to candidates and client. Created mock-interview for candidates and provided ML-based scores after mock interview was complete. Increased candidate NPS by 12%.",
@@ -188,7 +190,9 @@ my_volunteer <- tibble::tribble(
   
   "Industry Consultant", "Jan 2018", "", "City of Austin Business & International Affairs Focus Group", "Focusing on Austin TX's outreach to both business and international affairs", 
   
-    "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas"
+    "Chairman of the Board, Board Member", "Feb 2012", "Sep 2016", "Skillpoint Alliance", "Skillpoint Alliance builds partnerships between industry, education, and the community to provide a more qualified workforce for Central Texas",
+  
+  "Advisory Council", "Jan 2014", "", "McCombs School of Business, University of Texas", "Providing industry guidance on curriculum and pedagogy to McCombs MSBA and MSITM professors and deans"
 )
 
 my_volunteer %>% detailed_entries(
@@ -226,12 +230,8 @@ my_certs %>% brief_entries(
 my_expertise <- tibble::tribble(
   ~item, ~desc,
   "Leadership and Strategy", "Executive collaboration, Organization management, Culture change",
-  "Languages", "Python, R, SQL, Java",
-  "Machine Learning", "Tensorflow, Keras, Pandas, Tidyverse",
-  "Supervised Learning", "Regression, Random Forest, Gradient Boosted Trees",
-  "Unsupervised Learning", "K-means and hierarchical clustering, PCA, tSNE",
-  "Deep Learning", "CNN, RNN, LSTM, Active Learning, Transfer Learning",
-  "Engineering", "REST, Object Oriented Design, Test Driven Development"
+  "Languages", "Python, R, SQL, Java, English",
+  "Machine Learning", "PyTorch, Keras, Pandas, Tidyverse"
 )
  
 my_expertise %>% 
