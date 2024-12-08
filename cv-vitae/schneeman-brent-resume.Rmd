@@ -52,7 +52,7 @@ my_expertise %>%
 my_experience <- tibble::tribble(
   ~title, ~start, ~end, ~company, ~why,
   # PMG
-  "Director, AI", "March 2024", "current", "PMG", "Leading AI and machine learning efforts at PMG, specifically in intersecting the content of advertisements and KPI performance. Evolving customer-facing technology from descriptive analytics to predictive, leveraging GenAI and classic machine learning.",
+  "Director, Software and AI", "February 2024", "current", "PMG", "Leading AI and software engineering efforts at PMG, specifically in intersecting the content of advertisements and KPI performance. Delivered solutions which transforms the ways-of-working for client CMOs. Evolving customer-facing technology from descriptive analytics to predictive, leveraging GenAI and classic machine learning.",
   # Thought and Memory
     "AI Consultant", "January 2024", "March 2024", "Thought and Memory LLC", "Contracting with PMG Advertising. Helping bring machine learning and AI to the creative process. Entails working with business stakeholders to collect requirements and manage their expectations. Building team of dedicated feature and machine learning engineers. Creating first models around creative artifacts ('ads') to predict several KPIs,",
     "AI Consultant", "January 2023", "September 2023", "Thought and Memory LLC", "Architected, designed, and implemented candidate screening and intake system based on Large Languange Models for undisclosed client. System screened candidates based on client-defined criteria and provided feedback to candidates and client. Created mock-interview for candidates and provided ML-based scores after mock interview was complete. Increased candidate NPS by 12%.",
